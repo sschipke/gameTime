@@ -4,9 +4,10 @@ import Game from '../src/Game.js'
 import Round from '../src/Round.js';
 
 describe('Round', () => {
-  let round
+  let round, game
   beforeEach(() => {
-    round = new Round()
+    game = new Game();
+    round = new Round();
   })
   it('should be a function', () => {
     expect(Round).to.be.a('function')
