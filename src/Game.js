@@ -1,4 +1,5 @@
-import data from './data.js'
+import data from './data.js';
+import Player from './Player.js';
 
 class Game {
   constructor(surveys, answers) {
@@ -11,7 +12,7 @@ class Game {
   addPlayers(p1, p2) {
     let player1 = new Player(1, p1);
     let player2 = new Player(2, p2);
-    this.player.push(player1, player2);
+    this.players.push(player1, player2);
   }
 }
 
