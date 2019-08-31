@@ -33,7 +33,7 @@ describe('Round', () => {
     expect(round.determineCurrentPlayer()).to.equal(round.player1)
   });
   it('should accurately evalutate a correct guess', () => {
-    round.evaluateGuess('Want more space');
+    expect(round.evaluateGuess('Want more space')).to.equal(true);
     expect(round.correctGuesses).to.eql([{ answer: 'Want More Space', respondents: 33, surveyId: 4 }]);
     expect(round.player1.score).to.equal(33);
     expect(round.turnCounter).to.equal(2);

@@ -31,13 +31,13 @@ class Round {
     ); 
     if (index !== -1) {
       let answer = this.answers.splice(index, 1)[0]; 
-      player.score += answer.respondents
+      player.score += answer.respondents;
       this.correctGuesses.push(answer);
-      this.turnCounter++
-      return true
+      this.turnCounter++;
+      return true;
     }
     this.turnCounter++;
-    return false
+    return false;
   }
 
 
