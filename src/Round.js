@@ -24,16 +24,22 @@ class Round {
     }
   }
 
-  submitGuess(guess) {
+  evaluateGuess(guess) {
     let player = this.determineCurrentPlayer();
-    let index = this.answers.findIndex(answerObj => {
+    let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()
-    }); 
+    ); 
     if (index !== -1) {
-      let answer = this.answers.splice(index, 1).flat();
+      let answer = this.answers.splice(index, 1)[0]; 
+      player.score += answer.respondents
+      this.correctGuesses.push(answer);
+      this.turnCounter++
+      return true
     }
     this.turnCounter++;
+    return false
   }
+
 
 }
 
