@@ -3,7 +3,6 @@ class Round {
     this.survey = survey;
     this.answers = answers;
     this.correctGuesses = [];
-
   }
 }
 
