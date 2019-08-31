@@ -1,3 +1,9 @@
+import data from './data.js';
+import Game from '../src/Game.js'
+import Player from './Player.js';
+import Round from './Round.js';
+import FastMoney from './FastMoney.js';
+
 class Round {
   constructor(survey, answers, players) {
     this.survey = survey;
@@ -9,25 +15,31 @@ class Round {
     this.turnCounter = 1;
   }
   determineCurrentPlayer() {
-    if (this.turnCounter % 1 === 0) {
-      this.currentPlayer = this.player1;
-      return this.player1;
-    } else {
+    if (this.turnCounter % 2 === 0) {
       this.currentPlayer = this.player2;
       return this.player2;
+    } else {
+      this.currentPlayer = this.player1;
+      return this.player1;
     }
   }
 
-  submitGuess(guess) {
+  evaluateGuess(guess) {
     let player = this.determineCurrentPlayer();
-    let index = this.answers.findIndex(answerObj => {
+    let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()
-    }); 
+    ); 
     if (index !== -1) {
-      let answer = this.answers.splice(index, 1).flat();
+      let answer = this.answers.splice(index, 1)[0]; 
+      player.score += answer.respondents;
+      this.correctGuesses.push(answer);
+      this.turnCounter++;
+      return true;
     }
     this.turnCounter++;
+    return false;
   }
+
 
 }
 
