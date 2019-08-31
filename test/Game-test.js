@@ -32,7 +32,7 @@ describe('Game', () => {
     game.getSurveyAnswers();
     expect(game.currentAnswers.length).to.eql(3);
   })
-
+  
   // it('should be able to start a round', () => {
   //   game.startRound();
   //   expect(game.round.answers.length).to.equal(3)
