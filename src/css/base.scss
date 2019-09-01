@@ -47,6 +47,7 @@ p {
 button {
   background-color: #59D2ED;
   border: none;
+  color: white;
   cursor: pointer;
   font-size: 18px;
   margin: 20px;
@@ -68,16 +69,15 @@ header {
 
 #game-header {
   text-align: center;
-  // padding: 50px;
 }
 
 #timer-header {
   text-align: center;
-  // padding: 50px;
 }
 
 h1 {
   text-align: center;
+  margin: 20px;
 }
 
 #player-guess-info {
@@ -111,11 +111,51 @@ section {
 }
 
 main {
+  margin: 10px;
   width: 500px;
   text-align: center;
   justify-content: center;
 }
 
 h2 {
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
   text-align: center;
+  padding: 10px;
+}
+
+h3 {
+  font-family: sans-serif;
+  font-size: 30px;
+  margin: 0;
+  padding: 5px;
+}
+
+#h5-fe {
+  font-family: $frontend-font;
+  font-size: 30px;
+  margin: 0;
+  padding: 5px;
+}
+
+#h5-be {
+  font-family: $backend-font;
+  font-size: 30px;
+  margin: 0;
+  padding: 5px;
+}
+
+h4 {
+  font-size: 75px;
+  margin: 0;
+  padding: 5px;
+}
+
+#h4-fe {
+  font-family: $frontend-font;
+}
+
+#h4-be {
+  font-family: $backend-font;
 }
