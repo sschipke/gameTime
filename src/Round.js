@@ -24,7 +24,7 @@ class Round {
     }
   }
 
-  evaluateGuess(guess) {
+  evaluateGuess(guess) {  
     let player = this.determineCurrentPlayer();
     let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()

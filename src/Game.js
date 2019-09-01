@@ -12,6 +12,7 @@ class Game {
     this.currentSurvey;
     this.currentAnswers;
     this.usedSurveys = [0];
+    this.currentRound;
   }
 
   addPlayers(p1, p2) {
@@ -39,16 +40,20 @@ class Game {
   startRound() {
     this.getSurveyAnswers();
     if (this.roundCounter <= 2) {
-      let round = new Round(this.currentSurvey, this.currentAnswers, this.players);
+      this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
       // console.log(round)
     } else {
-      let fastMoney = new FastMoney(this.currentSurvey, this.currentAnswers, this.players);
+      this.currentRound = new FastMoney(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
     }
   }
 
-
+  updatePlayerScores() {
+    this.players = players.map(player => {
+      return player.score += 
+    })
+  }
 
 }
 
