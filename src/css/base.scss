@@ -1,6 +1,60 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: white;
+$frontend-font: 'Abril Fatface';
+$backend-font: 'Roboto Mono';
 
 body {
-  background-color: $primary-background;
+  // background: url(images/feud_splash_bkgd.png);
+  // background-image: url("./src/images/feud_splash_bkgd.png");
+  // background-size: cover;
+}
+
+#splash-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+#vs-inputs {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  margin: 20px;
+}
+
+input {
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+}
+
+p {
+  color: black;
+  font-size: 50px;
+}
+
+button {
+  background-color: #59D2ED;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 20px;
+  width: 200px;
+}
+
+#game-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
 }
