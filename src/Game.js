@@ -49,11 +49,11 @@ class Game {
     }
   }
 
-  updatePlayerScores() {
-    this.players = players.map(player => {
-      return player.score += 
-    })
-  }
+  // updatePlayerScores() {
+  //   this.players = players.map(player => {
+  //     return player.score += 
+  //   })
+  // }
 
 }
 
