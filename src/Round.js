@@ -1,7 +1,6 @@
 import data from './data.js';
 import Game from '../src/Game.js'
 import Player from './Player.js';
-import Round from './Round.js';
 import FastMoney from './FastMoney.js';
 
 class Round {
@@ -24,7 +23,7 @@ class Round {
     }
   }
 
-  evaluateGuess(guess) {  
+  submitGuess(guess) {
     let player = this.determineCurrentPlayer();
     let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()
@@ -38,6 +37,17 @@ class Round {
     }
     this.turnCounter++;
     return false;
+  }
+
+  evaluateGuess(guess) {
+    if (this.answers.forEach(answer => {
+      answer.answer.toUpperCase().includes(guess.toUpperCase())
+    })) {return true;
+    } return false;
+  }
+
+  passPlayers() {
+    return [this.player1, this.player2];
   }
 
 
