@@ -7,6 +7,7 @@ import './css/base.scss';
 import './images/feud_title.png'
 import './images/feud_subtitle.png'
 import './images/feud_splash_bkgd.png'
+import './images/feud_vs.png'
 
 import data from './data.js';
 

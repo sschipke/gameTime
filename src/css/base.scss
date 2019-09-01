@@ -3,7 +3,9 @@ $primary-background: white;
 $frontend-font: 'Abril Fatface';
 $backend-font: 'Roboto Mono';
 
+//splash page
 body {
+  font-family: sans-serif;
   // background: url(images/feud_splash_bkgd.png);
   // background-image: url("./src/images/feud_splash_bkgd.png");
   // background-size: cover;
@@ -28,7 +30,7 @@ img {
 }
 
 input {
-  color: black;
+  color: grey;
   background-color: white;
   font-size: 18px;
   margin: 20px;
@@ -47,14 +49,73 @@ button {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  margin: 20px;
   padding: 20px;
   width: 200px;
 }
 
-#game-header {
+// game page
+#game-page {
+  padding: 50px;
+}
+
+header {
   align-items: center;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#game-header {
+  text-align: center;
+  // padding: 50px;
+}
+
+#timer-header {
+  text-align: center;
+  // padding: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#player-guess-info {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+aside {
+  display: flex;
   flex-direction: column;
+  text-align: center;
+}
+
+section {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  text-align: center;
   justify-content: center;
-  padding: 50px;
+}
+
+#survey-num {
+  width: 80%;
+}
+
+#survey-score {
+  width: 20%;
+}
+
+main {
+  width: 500px;
+  text-align: center;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
 }

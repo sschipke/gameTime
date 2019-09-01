@@ -13,7 +13,7 @@
       <img src="images/feud_subtitle.png" alt="front end vs back end subtitle" width="500px">
       <div id="vs-inputs">
         <input type="text" value="FRONTEND PLAYER NAME" id="player1-input">
-        <p>vs</p>
+        <img src="images/feud_vs.png" alt="feud vs" width="50px">
         <input type="text" value="BACKEND PLAYER NAME" id="player2-input">
       </div>
       <button type="button">START GAME</button>
@@ -21,16 +21,49 @@
   </body>
   <div id="game-page">
     <header>
-      <img src="images/feud_title.png" alt="feud main title" width="200px">
+      <img src="images/feud_title.png" alt="feud main title" height="75px" width="175px">
+      <div id="game-header">
+        <h2>ROUND: 1</h2>
+        <h3>SURVEY QUESTION</h3>
+      </div>
+      <div id="timer-header">
+        <h2>TIME</h2>
+        <h3>30 SEC</h3>
+      </div>
     </header>
-    <div id="game-header">
-      <h2>ROUND:</h2>
-      <h3>SURVEY QUESTION</h3>
+    <h1>IF YOU DREW HOMER SIMPSON’S NAME IN A SECRET SANTA EXCHANGE, WHAT WOULD YOU BUY HIM?</h1>
+    <div id="player-guess-info">
+      <aside id="aside-player1">
+        <h5>FE PLAYER</h5>
+        <h4>250</h4>
+        <h6>PTS</h6>
+        <img src="" alt="carrot icon" height="" width="">
+      </aside>
+      <main id="main-survey-guess">
+        <section id="survey1">
+          <h2 id="survey-num">1</h2>
+          <h2 id="survey-score">115</h2>
+        </section>
+        <section id="survey2">
+          <h2 id="survey-num">1</h2>
+          <h2 id="survey-score">75</h2>
+        </section>
+        <section id="survey3">
+          <h2 id="survey-num">1</h2>
+          <h2 id="survey-score">230</h2>
+        </section>
+        <input type="text" value="TYPE GUESS HERE" id="guess-input">
+        <button type="button">SUBMIT GUESS</button>
+      </main>
+      <aside id="aside-player1">
+        <h5>FE PLAYER</h5>
+        <h4>250</h4>
+        <h6>PTS</h6>
+        <img src="" alt="carrot icon" height="" width="">
+        <h7>END GAME</h7>
+      </aside>
     </div>
-    <div id="timer-header">
-      <h2>TIME</h2>
-      <h3>30 SEC</h3>
-    </div>
+
   </div>
 </html>
 
