@@ -6,9 +6,9 @@ $backend-font: 'Roboto Mono';
 //splash page
 body {
   font-family: sans-serif;
-  // background: url(images/feud_splash_bkgd.png);
-  // background-image: url("./src/images/feud_splash_bkgd.png");
-  // background-size: cover;
+  background-image: url("/images/feud_splash_bkgd.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #splash-page {
