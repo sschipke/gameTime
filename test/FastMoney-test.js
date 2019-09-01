@@ -2,7 +2,6 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import FastMoney from '../src/FastMoney.js';
-import Game from '../src/Game.js';
 
 describe('Fast Money', () => {
 
