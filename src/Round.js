@@ -8,18 +8,17 @@ class Round {
     this.survey = survey;
     this.answers = answers;
     this.correctGuesses = [];
-    this.player1 = players[0];
-    this.player2 = players[1];
+    this.players = players;
     this.currentPlayer;
     this.turnCounter = 1;
   }
   determineCurrentPlayer() {
     if (this.turnCounter % 2 === 0) {
-      this.currentPlayer = this.player2;
-      return this.player2;
+      this.currentPlayer = this.players[1];
+      return this.players[1];
     } else {
-      this.currentPlayer = this.player1;
-      return this.player1;
+      this.currentPlayer = this.players[0];
+      return this.players[0];
     }
   }
 
@@ -33,21 +32,26 @@ class Round {
       player.score += answer.respondents;
       this.correctGuesses.push(answer);
       this.turnCounter++;
+      //update DOM Correct! + Points, reveal question on DOM
       return true;
     }
     this.turnCounter++;
+    //update DOM WRONG!
     return false;
   }
 
-  evaluateGuess(guess) {
-    if (this.answers.forEach(answer => {
-      answer.answer.toUpperCase().includes(guess.toUpperCase())
-    })) {return true;
-    } return false;
-  }
+  // evaluateGuess(guess) {
+  //   this.ans
+  // return this.answers.includes(answer => {
+  //   return answer.answer.toUpperCase()=== guess.toUpperCase()
+  // })
+  // }
 
-  passPlayers() {
-    return [this.player1, this.player2];
+  endRound() {
+    if (this.answers.length === 0) {
+      // Update DOM (show current leader and points);
+      //instatiate a new round
+    }
   }
 
 
