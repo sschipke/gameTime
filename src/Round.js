@@ -1,7 +1,7 @@
 import data from './data.js';
-import Game from '../src/Game.js'
+import Game from './Game.js'
 import Player from './Player.js';
-import FastMoney from './FastMoney.js';
+// import FastMoney from './FastMoney.js';
 
 class Round {
   constructor(survey, answers, players) {
