@@ -6,7 +6,7 @@ import Player from './Player.js';
 class Round {
   constructor(survey, answers, players) {
     this.survey = survey;
-    this.answers = answers;
+    this.answers = answers.sort((answerA, answerB) => answerB.respondents - answerA.respondents);
     this.correctGuesses = [];
     this.players = players;
     this.currentPlayer;
@@ -50,6 +50,7 @@ class Round {
   endRound() {
     if (this.answers.length === 0) {
       // Update DOM (show current leader and points);
+      //Button to move on
       //instatiate a new round
     }
   }
