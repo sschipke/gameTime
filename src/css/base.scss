@@ -19,6 +19,18 @@ body {
   padding: 50px;
 }
 
+#splash-page-img-feud {
+  width: 800px;
+}
+
+#splash-page-img-fevsbe {
+  width: 450px;
+}
+
+#splash-page-img-vs {
+  width: 50px;
+}
+
 #vs-inputs {
   align-items: center;
   display: flex;
@@ -39,9 +51,10 @@ input {
   width: 300px;
 }
 
-p {
-  color: black;
-  font-size: 50px;
+a {
+  color: #59D2ED;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 button {
@@ -57,6 +70,9 @@ button {
 
 // game page
 #game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 50px;
 }
 
@@ -65,6 +81,11 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-align: center;
+}
+
+#header-img-feud {
+  width: 95px;
 }
 
 #game-header {
@@ -76,8 +97,8 @@ header {
 }
 
 h1 {
+  padding: 20px 15% 20px 15%;
   text-align: center;
-  margin: 20px;
 }
 
 #player-guess-info {
@@ -107,6 +128,7 @@ section {
 }
 
 #survey-score {
+  background-color: #F05355;
   width: 20%;
 }
 
@@ -127,14 +149,15 @@ h2 {
 
 h3 {
   font-family: sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   margin: 0;
   padding: 5px;
 }
 
 #h5-fe {
   font-family: $frontend-font;
-  font-size: 30px;
+  font-size: 35px;
+  letter-spacing: 3px;
   margin: 0;
   padding: 5px;
 }
@@ -154,6 +177,7 @@ h4 {
 
 #h4-fe {
   font-family: $frontend-font;
+  letter-spacing: 3px;
 }
 
 #h4-be {
