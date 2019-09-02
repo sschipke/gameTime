@@ -1,4 +1,4 @@
-import Round from '../src/Round.js';
+import Round from './Round.js';
 
 class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {

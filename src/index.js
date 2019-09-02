@@ -17,6 +17,20 @@ import domUpdates from './domUpdates';
 
 let game, player1, player2;
 
+$(document).ready(() => {
+  $('#start-game').prop('disabled', true);
+  $('#game-page').hide();
+  // include all elements that should be hidded on page load, then we can show as/when needed
+})
+
+$('.name-inputs').keyup(function() {
+  if (
+    $('#player1-input').val() !== '' && $('#player2-input').val() !== '' 
+    ) {
+    $('#start-game').prop('disabled', false);
+  }
+})
+
 $('#start-game').click(e => {
   player1 = $('#player1-input').val();
   player2 = $('#player2-input').val();
@@ -27,8 +41,9 @@ $('#start-game').click(e => {
 const startGame = () => {
   game = new Game(data.surveys, data.answers);
   game.addPlayers(player1, player2);
-  game.startRound();
-
+  domUpdates.appendPlayerNames(player1, player2);
+  $('#splash-page').hide();
+  $('#game-page').show();
+  // game.startRound();
 };
 
-console.log('This is the JavaScript entry file - your code begins here.');
