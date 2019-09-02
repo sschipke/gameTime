@@ -4,9 +4,10 @@ import $ from 'jquery';
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/feud_title.png'
-import './images/feud_subtitle.png'
-import './images/feud_splash_bkgd.png'
+import './images/feud_title.png';
+import './images/feud_subtitle.png';
+import './images/feud_splash_bkgd.png';
+import './images/feud_vs.png';
 
 import data from './data.js';
 
