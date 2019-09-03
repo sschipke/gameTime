@@ -45,5 +45,9 @@ const startGame = (p1, p2) => {
   $('#splash-page').hide();
   $('#game-page').show();
   //hide round until button clicked
+
   game.startRound();
 };
+
+$('button').on('click', game.currentRound.submitGuess($('guess-input').val()))
+

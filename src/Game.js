@@ -48,6 +48,7 @@ class Game {
       this.currentRound = new FastMoney(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
     }
+    domUpdates.displayQuestion(this.currentSurvey.question);
 
   }
 
