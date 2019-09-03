@@ -44,5 +44,8 @@ const startGame = (p1, p2) => {
   // domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
-  // game.startRound();
+  game.startRound();
 };
+
+$('button').on('click', game.currentRound.submitGuess($('guess-input').val()))
+
