@@ -131,11 +131,11 @@ section {
   justify-content: center;
 }
 
-#survey-num {
+.survey-num {
   width: 80%;
 }
 
-#survey-score {
+.survey-score {
   background-color: #F05355;
   width: 20%;
 }
@@ -162,7 +162,7 @@ h3 {
   padding: 5px;
 }
 
-#h5-fe {
+.h5-fe {
   font-family: $frontend-font;
   font-size: 35px;
   letter-spacing: 3px;
@@ -170,7 +170,7 @@ h3 {
   padding: 5px;
 }
 
-#h5-be {
+.h5-be {
   font-family: $backend-font;
   font-size: 30px;
   margin: 0;
@@ -183,11 +183,11 @@ h4 {
   padding: 5px;
 }
 
-#h4-fe {
+.h4-fe {
   font-family: $frontend-font;
   letter-spacing: 3px;
 }
 
-#h4-be {
+.h4-be {
   font-family: $backend-font;
 }

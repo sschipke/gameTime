@@ -8,11 +8,11 @@
   </head>
   <body>
     <div id="splash-page">
-      <img src="images/feud_title.png" alt="feud main title" id="splash-page-img-feud">
-      <img src="images/feud_subtitle.png" alt="front end vs back end subtitle" id="splash-page-img-fevsbe">
+      <img id="splash-page-img-feud" src="images/feud_title.png" alt="feud main title">
+      <img id="splash-page-img-fevsbe" src="images/feud_subtitle.png" alt="front end vs back end subtitle">
       <div id="vs-inputs">
         <input id="player1-input" class="name-inputs" type="text" maxlength="10" placeholder="ENTER FRONTEND PLAYER NAME">
-        <img src="images/feud_vs.png" alt="vs" id="splash-page-img-vs">
+        <img id="splash-page-img-vs" src="images/feud_vs.png" alt="vs">
         <input id="player2-input" class="name-inputs" type="text" maxlength="10" placeholder="ENTER BACKEND PLAYER NAME">
       </div>
       <button id="start-game" type="button">START GAME</button>
@@ -20,48 +20,46 @@
   </body>
   <div id="game-page">
     <header>
-      <img src="images/feud_title.png" alt="feud main title" id="header-img-feud">
+      <img id="header-img-feud" src="images/feud_title.png" alt="feud main title">
       <div id="game-header">
-        <h3>ROUND: 1</h3>
+        <h3>ROUND: <span id="round-counter">1</span></h3>
         <h3>SURVEY QUESTION</h3>
       </div>
       <div id="timer-header">
         <h3>TIME: 30 SEC</h3>
       </div>
     </header>
-    <h1>IF YOU DREW HOMER SIMPSON’S NAME IN A SECRET SANTA EXCHANGE, WHAT WOULD YOU BUY HIM?</h1>
+    <h1 id="survey-question">IF YOU DREW HOMER SIMPSON’S NAME IN A SECRET SANTA EXCHANGE, WHAT WOULD YOU BUY HIM?</h1>
     <div id="player-guess-info">
       <aside id="aside-player1">
-        <h5 id="h5-fe">fe player</h5>
-        <h4 id="h4-fe">250</h4>
-        <h5 id="h5-fe">PTS</h5>
-        <h4 id="h4-fe">^</h4>
+        <h5 id="player1-name" class="h5-fe">fe player</h5>
+        <h4 id="player1-score" class="h4-fe">250</h4>
+        <h5 class="h5-fe">PTS</h5>
+        <h4 id="player1-carrot" class="h4-fe">^</h4>
       </aside>
       <main id="main-survey-guess">
         <section id="survey1">
-          <h2 id="survey-num">1</h2>
-          <h2 id="survey-score">0</h2>
+          <h2 id="answer1" class="survey-num">1</h2>
+          <h2 id="score1"class="survey-score">0</h2>
         </section>
         <section id="survey2">
-          <h2 id="survey-num">2</h2>
-          <h2 id="survey-score">75</h2>
+          <h2 id="answer2" class="survey-num">2</h2>
+          <h2 id="score2" class="survey-score">75</h2>
         </section>
         <section id="survey3">
-          <h2 id="survey-num">3</h2>
-          <h2 id="survey-score">230</h2>
+          <h2 id="answer3" class="survey-num">3</h2>
+          <h2 id="score3" class="survey-score">230</h2>
         </section>
-        <input type="text" placeholder="ENTER GUESS HERE" id="guess-input">
-        <button type="button">SUBMIT GUESS</button>
+        <input id="guess-input" type="text" placeholder="ENTER GUESS HERE">
+        <button id="submit-guess" type="button">SUBMIT GUESS</button>
       </main>
-      <aside id="aside-player1">
-        <h5 id="h5-be">be player</h5>
-        <h4 id="h4-be">250</h4>
-        <h5 id="h5-be">PTS</h5>
-        <h4 id="h4-be">^</h4>
+      <aside id="aside-player2">
+        <h5 id="player2-name" class="h5-be">be player</h5>
+        <h4 id="player2-score" class="h4-be">250</h4>
+        <h5 class="h5-be">PTS</h5>
+        <h4 id="player2-carrot" class="h4-be">^</h4>
         <a href="google.com">END GAME</a>
       </aside>
     </div>
   </div>
 </html>
-
-  <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->

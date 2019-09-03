@@ -15,7 +15,7 @@ import Game from './Game.js';
 import domUpdates from './domUpdates';
 
 
-let game, player1, player2;
+let game;
 
 $(document).ready(() => {
   $('#start-game').prop('disabled', true);
@@ -25,25 +25,24 @@ $(document).ready(() => {
 
 $('.name-inputs').keyup(function() {
   if (
-    $('#player1-input').val() !== '' && $('#player2-input').val() !== '' 
+    $('#player1-input').val() !== '' && $('#player2-input').val() !== ''
     ) {
     $('#start-game').prop('disabled', false);
   }
 })
 
 $('#start-game').click(e => {
-  player1 = $('#player1-input').val();
-  player2 = $('#player2-input').val();
+  let player1 = $('#player1-input').val();
+  let player2 = $('#player2-input').val();
   // fetch
-  startGame();
+  startGame(player1, player2);
 });
 
-const startGame = () => {
+const startGame = (p1, p2) => {
   game = new Game(data.surveys, data.answers);
-  game.addPlayers(player1, player2);
-  domUpdates.appendPlayerNames(player1, player2);
+  game.addPlayers(p1, p2);
+  // domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
   // game.startRound();
 };
-

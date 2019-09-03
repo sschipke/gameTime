@@ -2,12 +2,13 @@ import data from './data.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import FastMoney from './FastMoney.js';
+import domUpdates from './domUpdates.js';
 
 class Game {
   constructor(surveys, answers) {
     this.surveys = surveys;
     this.answers = answers;
-    this.players = []; 
+    this.players = [];
     this.roundCounter = 0;
     this.currentSurvey;
     this.currentAnswers;
@@ -19,6 +20,7 @@ class Game {
     let player1 = new Player(1, p1);
     let player2 = new Player(2, p2);
     this.players.push(player1, player2);
+    domUpdates.appendPlayerNames(p1, p2);
   }
 
   selectSurvey() {
@@ -34,7 +36,7 @@ class Game {
   getSurveyAnswers() {
     this.selectSurvey();
     this.currentAnswers = this.answers.filter(answer => answer.surveyId === this.currentSurvey.id);
-    this.currentAnswers.sort((a, b) => b.respondents - a.respondents);   
+    this.currentAnswers.sort((a, b) => b.respondents - a.respondents);
   }
 
   startRound() {
@@ -51,7 +53,7 @@ class Game {
 
   // updatePlayerScores() {
   //   this.players = players.map(player => {
-  //     return player.score += 
+  //     return player.score +=
   //   })
   // }
 
