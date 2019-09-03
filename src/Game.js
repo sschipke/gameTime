@@ -44,13 +44,14 @@ class Game {
     if (this.roundCounter <= 2) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
-      domUpdates.displayQuestion(this.currentRound.survey.question)
+      // domUpdates.displayQuestion(this.currentRound.survey.question)
       // console.log(round)
     } else {
       this.currentRound = new FastMoney(this.currentSurvey, this.currentAnswers, this.players);
-      domUpdates.displayQuestion(this.currentRound.survey.question)
+      // domUpdates.displayQuestion(this.currentRound.survey.question)
       this.roundCounter++;
     }
+    domUpdates.displayQuestion(this.currentSurvey.question)
   }
 
   // updatePlayerScores() {

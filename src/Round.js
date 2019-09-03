@@ -24,15 +24,15 @@ class Round {
   }
 
   submitGuess(guess) {
-    console.log('hi')
     let player = this.determineCurrentPlayer();
     let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()
     ); 
     if (index !== -1) {
-      let answer = this.answers.splice(index, 1)[0]; 
+      let answer = this.answers.slice(index)[0]; 
+      console.log(answer)
       player.score += answer.respondents;
-      domUpdates.updateScore(player)
+      // domUpdates.updateScore(player)
       //display new score
       this.correctGuesses.push(answer);
       this.turnCounter++;
