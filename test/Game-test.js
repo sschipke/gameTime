@@ -1,8 +1,13 @@
-const expect = chai.expect;
 import chai from 'chai';
+const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 
 import Game from '../src/Game.js';
 import data from '../src/data.js';
+import domUpdates from '../src/domUpdates.js';
+
+chai.spy.on(domUpdates, 'appendPlayerNames', () => {});
 
 // import Round from '../src/Round.js';
 
@@ -19,7 +24,8 @@ describe('Game', () => {
 
   it('should be able to add 2 players', () => {
     game.addPlayers('Quinne', 'Scott');
-    expect(game.players[1].name).to.equal('Scott')
+    expect(game.players[1].name).to.equal('Scott');
+    expect(domUpdates.appendPlayerNames).to.have.been.called(1);
   })
 
   it('should store used surveys', () => {

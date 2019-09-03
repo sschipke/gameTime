@@ -44,5 +44,6 @@ const startGame = (p1, p2) => {
   // domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
-  // game.startRound();
+  //hide round until button clicked
+  game.startRound();
 };

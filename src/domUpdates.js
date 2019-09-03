@@ -7,4 +7,11 @@ appendPlayerNames(p1, p2) {
   $('#player2-name').text(p2);
 },
 
+
+appendCorrectGuess(id, index, answer, score) {
+  $(`#answer${index + 1}`).text(answers[index].answer);
+  $(`#score${index + 1}`).text(answers[index].respondents);
+  $(`#player${id}-score`).text(score);
+}
+
 };

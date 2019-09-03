@@ -1,6 +1,7 @@
 import data from './data.js';
 import Game from './Game.js'
 import Player from './Player.js';
+import domUpdates from './domUpdates.js';
 // import FastMoney from './FastMoney.js';
 
 class Round {
@@ -27,10 +28,12 @@ class Round {
     let index = this.answers.findIndex(answerObj => 
       answerObj.answer.toUpperCase() === guess.toUpperCase()
     ); 
-    if (index !== -1) {
-      let answer = this.answers.splice(index, 1)[0]; 
-      player.score += answer.respondents;
-      this.correctGuesses.push(answer);
+    if (index !== -1 && !this.correctGuesses.includes(guess.toUpperCase())) {
+
+      player.score += this.answers[index].respondents;
+      // domUpdates.appendCorrectGuess(player.id, index, this.answers[index], player.score); 
+      let answer = this.answers.slice(index)[0];
+      this.correctGuesses.push(answer.answer.toUpperCase());
       this.turnCounter++;
       //update DOM Correct! + Points, reveal question on DOM
       return true;

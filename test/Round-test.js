@@ -34,7 +34,7 @@ describe('Round', () => {
   });
   it('should accurately evalutate a correct guess', () => {
     expect(round.submitGuess('Want more space')).to.equal(true);
-    expect(round.correctGuesses).to.eql([{ answer: 'Want More Space', respondents: 33, surveyId: 4 }]);
+    expect(round.correctGuesses).to.eql(['WANT MORE SPACE']);
     expect(round.players[0].score).to.equal(33);
     expect(round.turnCounter).to.equal(2);
   });
@@ -44,15 +44,19 @@ describe('Round', () => {
     expect(round.players[0].score).to.equal(0);
     expect(round.turnCounter).to.equal(2)
   });
+
   it('should should accurately evaluate multiple guesses', () => {
+    round.submitGuess('want more space');
     round.submitGuess('wrong');
     round.submitGuess('Family has grown');
-    expect(round.turnCounter).to.equal(3);
-    expect(round.players[0].score).to.equal(0);
-    expect(round.players[1].score).to.equal(61);
-    expect(round.correctGuesses).to.eql([{ answer: 'Family Has Grown', respondents: 61, surveyId: 4 }]);
-    expect(round.answers.length).to.equal(2);
+    expect(round.turnCounter).to.equal(4);
+    expect(round.players[1].score).to.equal(0);
+    expect(round.players[0].score).to.equal(94);
+    expect(round.correctGuesses).to.eql(['WANT MORE SPACE','FAMILY HAS GROWN']);
+    expect(round.correctGuesses.length).to.equal(2);
+
   });
+
 
   // it('should evaluate a guess', () => {
   //   console.log(round.evaluateGuess('Want more space'))
