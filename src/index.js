@@ -19,14 +19,14 @@ let game;
 
 $(document).ready(() => {
   $('#start-game').prop('disabled', true);
+  $('#submit-guess').prop('disabled', true);
   $('#game-page').hide();
+  $('#player2-carrot').hide();
   // include all elements that should be hidded on page load, then we can show as/when needed
-})
 
-$('.name-inputs').keyup(function() {
-  if (
-    $('#player1-input').val() !== '' && $('#player2-input').val() !== ''
-    ) {
+
+$('.name-inputs').keyup(() => {
+  if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
     $('#start-game').prop('disabled', false);
   }
 })
@@ -45,9 +45,20 @@ const startGame = (p1, p2) => {
   $('#splash-page').hide();
   $('#game-page').show();
   //hide round until button clicked
-
   game.startRound();
 };
 
-$('button').on('click', game.currentRound.submitGuess($('guess-input').val()))
+$('#guess-input').keyup(() => {
+  if ($('#guess-input').val() !== '') {
+      $('#submit-guess').prop('disabled', false);
+    }
+})
 
+$('#submit-guess').click(e => {
+  game.currentRound.submitGuess($('#guess-input').val())
+  $('#guess-input').val('')
+  $('#submit-guess').prop('disabled', true)
+  $('#player2-carrot, #player1-carrot').toggle();
+})
+
+})

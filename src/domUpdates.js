@@ -9,8 +9,8 @@ appendPlayerNames(p1, p2) {
 },
 
 appendCorrectGuess(id, index, answer, score) {
-  $(`#answer${index + 1}`).text(answers[index].answer);
-  $(`#score${index + 1}`).text(answers[index].respondents);
+  $(`#answer${index + 1}`).text(answer.answer);
+  $(`#score${index + 1}`).text(answer.respondents);
   $(`#player${id}-score`).text(score);
 },
 
@@ -18,5 +18,8 @@ displayQuestion(question) {
     $('h1').text(question);
 },
 
-};
+displayRound(count) {
+  count < 2 ? $("#round-counter").text(count) : $("#round-counter").text("FAST MONEY")
+}
 
+};

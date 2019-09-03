@@ -41,6 +41,7 @@ class Game {
 
   startRound() {
     this.getSurveyAnswers();
+    console.log(this.currentAnswers)
     if (this.roundCounter <= 2) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
@@ -48,6 +49,7 @@ class Game {
       this.currentRound = new FastMoney(this.currentSurvey, this.currentAnswers, this.players);
       this.roundCounter++;
     }
+    domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
 
   }
