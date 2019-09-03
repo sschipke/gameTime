@@ -44,6 +44,10 @@ const startGame = () => {
   domUpdates.appendPlayerNames(player1, player2);
   $('#splash-page').hide();
   $('#game-page').show();
-  // game.startRound();
+  game.startRound();
 };
+console
+$('button').on('click', game.currentRound.submitGuess($('guess-input').val()))
+
+
 
