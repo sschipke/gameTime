@@ -6,7 +6,7 @@ import Player from './Player.js';
 class Round {
   constructor(survey, answers, players) {
     this.survey = survey;
-    this.answers = answers.sort((answerA, answerB) => answerB.respondents - answerA.respondents);
+    this.answers = answers;
     this.correctGuesses = [];
     this.players = players;
     this.currentPlayer;
