@@ -73,7 +73,7 @@ button {
 
 button:disabled {
   background-color: gray;
-  cursor: no;
+  cursor: not-allowed;
 }
 
 // game page
@@ -160,6 +160,10 @@ h3 {
   font-size: 20px;
   margin: 0;
   padding: 5px;
+}
+
+#timer {
+  color: white;
 }
 
 .h5-fe {

@@ -24,27 +24,28 @@ class Round {
 
   submitGuess(guess) {
     let player = this.determineCurrentPlayer();
-    let index = this.answers.findIndex(answerObj => 
+    let index = this.answers.findIndex(answerObj =>
       answerObj.answer.toUpperCase() === guess.toUpperCase()
-    ); 
+    );
     if (index !== -1 && !this.correctGuesses.includes(guess.toUpperCase())) {
       player.score += this.answers[index].respondents;
-      // domUpdates.appendCorrectGuess(player.id, index, this.answers[index], player.score); 
+      domUpdates.appendCorrectGuess(player.id, index, this.answers[index], player.score);
       let answer = this.answers.slice(index)[0];
       this.correctGuesses.push(answer.answer.toUpperCase());
       this.turnCounter++;
-      //update DOM Correct! + Points, reveal question on DOM
-      return true;
+      this.endRound();
+      //update DOM RIGHT!
+    } else {
+      this.turnCounter++;
+      //update DOM WRONG!
     }
-    this.turnCounter++;
-    //update DOM WRONG!
-    return false;
   }
 
   endRound() {
-    if (this.answers.length === 0) {
-      // Update DOM (show current leader and points);
+    if (this.correctGuesses.length === 3) {
       //Button to move on
+      // dom method to append button with message to move on
+      // button, event listener, start game()
       //instatiate a new round
     }
   }
@@ -52,4 +53,4 @@ class Round {
 
 }
 
-export default Round 
+export default Round
