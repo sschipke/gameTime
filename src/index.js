@@ -35,11 +35,14 @@ $('#start-game').click(() => {
   let player1 = $('#player1-input').val();
   let player2 = $('#player2-input').val();
   // fetch
-  startGame(player1, player2);
+  fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+  .then(response => response.json())
+  .then(data =>  startGame(player1, player2, data.data.surveys, data.data.answers))
+  .catch(err => console.log(err));
 });
 
-const startGame = (p1, p2) => {
-  game = new Game(data.surveys, data.answers);
+const startGame = (p1, p2, surveys, answers) => {
+  game = new Game(surveys, answers);
   game.addPlayers(p1, p2);
   // domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
