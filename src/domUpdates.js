@@ -23,11 +23,11 @@ displayRound(count) {
 },
 
 displayRoundModal(round) {
-$(`<div id="round-modal"><div id="modal-content"><p>Round: ${round}</p><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
+$(`<div id="round-modal"><div id="modal-content"><p id="modal-round" class="modal-text">Round: ${round}</p><p class="modal-text">Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
 displayFastMoneyModal(round) {
-  $(`<div id="round-modal"><div id="modal-content"><p>Round: ${round}</p><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
+  $(`<div id="round-modal"><div id="modal-content"><p id="modal-round" class="modal-text">Round: ${round}</p><p class="modal-text">Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
 };

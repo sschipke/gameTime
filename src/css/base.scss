@@ -148,6 +148,9 @@ main {
 }
 
 #round-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0,0,0,0.7);
   height: 100%;
   position: fixed;
@@ -157,7 +160,16 @@ main {
 }
 
 #modal-content {
-  background-color: grey;
+  background-image: url("/images/feud_modal_bkgd.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
 }
 
 h2 {
@@ -207,4 +219,16 @@ h4 {
 
 .h4-be {
   font-family: $backend-font;
+}
+
+#modal-round {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.modal-text {
+  font-family: sans-serif;
+  font-size: 30px;
 }

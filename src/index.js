@@ -7,6 +7,7 @@ import './css/base.scss';
 import './images/feud_title.png';
 import './images/feud_subtitle.png';
 import './images/feud_splash_bkgd.png';
+import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
 
 import data from './data.js';
@@ -64,7 +65,7 @@ $('#submit-guess').click(() => {
   $('#player2-carrot, #player1-carrot').toggle();
 })
 
-$('#game-page').click((e) => { 
+$('#game-page').click((e) => {
   if(e.target.id === 'close-modal') {
     $('#answer1').text('1');
     $('#score1').text('#');
