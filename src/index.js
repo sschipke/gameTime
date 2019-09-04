@@ -35,7 +35,6 @@ $('.name-inputs').keyup(() => {
 $('#start-game').click(() => {
   let player1 = $('#player1-input').val();
   let player2 = $('#player2-input').val();
-  // fetch
   fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
   .then(response => response.json())
   .then(data =>  startGame(player1, player2, data.data.surveys, data.data.answers))

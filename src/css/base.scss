@@ -147,7 +147,7 @@ main {
   justify-content: center;
 }
 
-#round-modal {
+.round-modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,9 +159,9 @@ main {
   z-index: 1;
 }
 
-#modal-content {
+.modal-content {
   background-image: url("/images/feud_modal_bkgd.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
