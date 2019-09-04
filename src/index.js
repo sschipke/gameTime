@@ -31,7 +31,7 @@ $('.name-inputs').keyup(() => {
   }
 })
 
-$('#start-game').click(e => {
+$('#start-game').click(() => {
   let player1 = $('#player1-input').val();
   let player2 = $('#player2-input').val();
   // fetch
@@ -54,11 +54,27 @@ $('#guess-input').keyup(() => {
     }
 })
 
-$('#submit-guess').click(e => {
+$('#submit-guess').click(() => {
   game.currentRound.submitGuess($('#guess-input').val())
   $('#guess-input').val('')
   $('#submit-guess').prop('disabled', true)
   $('#player2-carrot, #player1-carrot').toggle();
 })
+
+$('#game-page').click((e) => { 
+  if(e.target.id === 'close-modal') {
+    console.log('helloooooooo')
+    $('#answer1').text('1');
+    $('#score1').text('#');
+    $('#answer2').text('2');
+    $('#score2').text('#');
+    $('#answer3').text('3');
+    $('#score3').text('#');
+    game.startRound();
+    $('#round-modal').remove();
+  }
+  // console.log(this);
+  // $('#close-modal').remove('#round-modal');
+});
 
 })

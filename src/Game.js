@@ -51,7 +51,11 @@ class Game {
     }
     domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
+  }
 
+  endRound() {
+    round.endRound();
+    
   }
 
 }

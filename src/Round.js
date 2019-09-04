@@ -43,6 +43,7 @@ class Round {
 
   endRound() {
     if (this.correctGuesses.length === 3) {
+      domUpdates.displayRoundModal(this.turnCounter);
       //Button to move on
       // dom method to append button with message to move on
       // button, event listener, start game()

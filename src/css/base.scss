@@ -147,6 +147,19 @@ main {
   justify-content: center;
 }
 
+#round-modal {
+  background-color: rgba(0,0,0,0.7);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#modal-content {
+  background-color: grey;
+}
+
 h2 {
   background-color: black;
   color: white;
