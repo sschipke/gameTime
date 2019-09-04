@@ -58,10 +58,14 @@ $('#guess-input').keyup(() => {
 })
 
 $('#submit-guess').click(() => {
-  game.currentRound.submitGuess($('#guess-input').val())
-  $('#guess-input').val('')
-  $('#submit-guess').prop('disabled', true)
-  $('#player2-carrot, #player1-carrot').toggle();
+    if (game.roundCounter <= 2) {
+      game.currentRound.submitGuess($('#guess-input').val())
+      $('#guess-input').val('')
+      $('#submit-guess').prop('disabled', true)
+      $('#player2-carrot, #player1-carrot').toggle();
+    } else {
+      // game.currentRound.fastMoneyMethod
+    }
 })
 
 $('#game-page').click((e) => { 
