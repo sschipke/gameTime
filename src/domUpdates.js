@@ -30,4 +30,13 @@ displayFastMoneyModal(round) {
   $(`<div id="round-modal"><div id="modal-content"><p>Round: ${round}</p><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
+finalModal() {
+
+},
+
+changeTimerColor() {
+  $('#timer').css('background-color', 'pink');
+},
+
+
 };

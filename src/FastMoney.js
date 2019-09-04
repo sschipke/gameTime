@@ -1,4 +1,7 @@
 import Round from './Round.js';
+import domUpdates from './domUpdates.js'
+
+let domUpdate = domUpdates;
 
 class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {
@@ -19,7 +22,7 @@ class FastMoney extends Round {
     function countdown() {
       if (timer == -1) {
         clearTimeout(timerId);
-          // domUpdate.finalModal();
+        domUpdate.fastMoneyModal();
       } else {
         elem.innerHTML = timeLeft + ' seconds remaining';
         timeLeft--;
