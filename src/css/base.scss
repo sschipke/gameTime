@@ -221,6 +221,19 @@ h4 {
   font-family: $backend-font;
 }
 
+.carrot {
+  opacity: .5;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    font-size: 6em;
+    opacity: 1;
+    color: black;
+  }
+}
+
 #modal-round {
   font-family: sans-serif;
   font-weight: bold;
