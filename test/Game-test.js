@@ -7,7 +7,7 @@ import Game from '../src/Game.js';
 import data from '../src/data.js';
 import domUpdates from '../src/domUpdates.js';
 
-chai.spy.on(domUpdates, 'appendPlayerNames', () => {});
+chai.spy.on(domUpdates, ['displayRound', 'displayQuestion'], () => {});
 
 // import Round from '../src/Round.js';
 
@@ -25,7 +25,6 @@ describe('Game', () => {
   it('should be able to add 2 players', () => {
     game.addPlayers('Quinne', 'Scott');
     expect(game.players[1].name).to.equal('Scott');
-    expect(domUpdates.appendPlayerNames).to.have.been.called(1);
   })
 
   it('should store used surveys', () => {
@@ -48,7 +47,9 @@ describe('Game', () => {
   it('should keep track of the current round', () => {
     game.startRound();
     game.startRound();
-    expect(game.roundCounter).to.equal(2)
+    expect(game.roundCounter).to.equal(2);
+    expect(domUpdates.displayQuestion).to.have.been.called(2);
+    expect(domUpdates.displayRound).to.have.been.called(2);
   })
 
 })
