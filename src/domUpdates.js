@@ -22,8 +22,12 @@ displayRound(count) {
   count <= 2 ? $("#round-counter").text(count) : $("#round-counter").text("FAST MONEY")
 },
 
-displayRoundModal(roundCount) {
-  $(`<div id="round-modal"><div id="modal-content"><h3>Round: ${roundCount}</h3><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
-}
+displayRoundModal(round) {
+$(`<div id="round-modal"><div id="modal-content"><p>Round: ${round}</p><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
+},
+
+displayFastMoneyModal(round) {
+  $(`<div id="round-modal"><div id="modal-content"><p>Round: ${round}</p><p>Here is more content!</p><button id="close-modal" type="button">Close</button></div></div>`).insertAfter('#main-survey-guess')
+},
 
 };

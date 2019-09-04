@@ -4,14 +4,16 @@ import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor(survey, answers, players) {
+  constructor(survey, answers, players, round) {
     this.survey = survey;
     this.answers = answers;
     this.correctGuesses = [];
     this.players = players;
     this.currentPlayer;
     this.turnCounter = 1;
+    this.roundCounter = round;
   }
+
   determineCurrentPlayer() {
     if (this.turnCounter % 2 === 0) {
       this.currentPlayer = this.players[1];
@@ -43,7 +45,7 @@ class Round {
 
   endRound() {
     if (this.correctGuesses.length === 3) {
-      domUpdates.displayRoundModal(this.turnCounter);
+      this.roundCounter <= 1 ?domUpdates.displayRoundModal(this.roundCounter) : domUpdates.displayFastMoneyModal('FAST MONEY');
       //Button to move on
       // dom method to append button with message to move on
       // button, event listener, start game()

@@ -66,7 +66,6 @@ $('#submit-guess').click(() => {
 
 $('#game-page').click((e) => { 
   if(e.target.id === 'close-modal') {
-    console.log('helloooooooo')
     $('#answer1').text('1');
     $('#score1').text('#');
     $('#answer2').text('2');
