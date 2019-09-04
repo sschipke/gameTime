@@ -3,7 +3,6 @@ import Round from './Round.js';
 class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {
     super(survey, answers, players);
-    this.timer = 30000;
     this.multiplier = multiplier || 1;
     this.player1Guesses = [];
     this.player2Guesses = [];
@@ -12,10 +11,21 @@ class FastMoney extends Round {
   }
 
   startTimer() {
-    // console.log('TIME START');
-    // this.setTimeout(() => {
-      // console.log('TIMES UP'), this.timer;
-    // });
+    domUpdate.changeTimerColor();
+    let timer = 30;
+    let elem = document.getElementById('timer');
+    let timerId = setInterval(countdown, 1000);
+
+    function countdown() {
+      if (timer == -1) {
+        clearTimeout(timerId);
+          // domUpdate.finalModal();
+      } else {
+        elem.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+     }
+}
+
   }
 
   logGuesses(playerID, guess) {
