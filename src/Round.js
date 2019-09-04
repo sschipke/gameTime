@@ -45,11 +45,7 @@ class Round {
 
   endRound() {
     if (this.correctGuesses.length === 3) {
-      this.roundCounter <= 1 ?domUpdates.displayRoundModal(this.roundCounter) : domUpdates.displayFastMoneyModal('FAST MONEY');
-      //Button to move on
-      // dom method to append button with message to move on
-      // button, event listener, start game()
-      //instatiate a new round
+      this.roundCounter <= 1 ? domUpdates.displayRoundModal(this.roundCounter) : domUpdates.displayFastMoneyModal('FAST MONEY');
     }
   }
 

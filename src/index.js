@@ -44,7 +44,7 @@ $('#start-game').click(() => {
 const startGame = (p1, p2, surveys, answers) => {
   game = new Game(surveys, answers);
   game.addPlayers(p1, p2);
-  // domUpdates.appendPlayerNames(p1, p2);
+  domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
   //hide round until button clicked
@@ -58,10 +58,14 @@ $('#guess-input').keyup(() => {
 })
 
 $('#submit-guess').click(() => {
-  game.currentRound.submitGuess($('#guess-input').val())
-  $('#guess-input').val('')
-  $('#submit-guess').prop('disabled', true)
-  $('#player2-carrot, #player1-carrot').toggle();
+    if (game.roundCounter <= 2) {
+      game.currentRound.submitGuess($('#guess-input').val())
+      $('#guess-input').val('')
+      $('#submit-guess').prop('disabled', true)
+      $('#player2-carrot, #player1-carrot').toggle();
+    } else {
+      // game.currentRound.fastMoneyMethod
+    }
 })
 
 $('#game-page').click((e) => {
