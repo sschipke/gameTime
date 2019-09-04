@@ -1,11 +1,11 @@
 import chai from 'chai';
-import data from '../src/data.js';
-
-const expect = chai.expect
-import Game from '../src/Game.js'
+const spies = require('chai-spies');
+chai.use(spies);
+const expect = chai.expect;
 import Round from '../src/Round.js';
-import Player from '../src/Player.js';
-import FastMoney from '../src/FastMoney.js';
+import domUpdates from '../src/domUpdates.js';
+
+chai.spy.on(domUpdates, ['appendCorrectGuess', 'displayRoundModal', 'displayFastMoneyModal'], () =>{});
 
 describe('Round', () => {
   let round
@@ -17,7 +17,7 @@ describe('Round', () => {
       { answer: 'Can Afford More', respondents: 5, surveyId: 4 }
     ];
     let players = [{id: 1, name: 'Becky', score: 0}, {id: 2, name: 'Jhun', score: 0}];
-    round = new Round(survey, answers, players);
+    round = new Round(survey, answers, players, 1);
   })
   it('should be a function', () => {
     expect(Round).to.be.a('function')
@@ -33,13 +33,14 @@ describe('Round', () => {
     expect(round.determineCurrentPlayer()).to.equal(round.players[0])
   });
   it('should accurately evalutate a correct guess', () => {
-    expect(round.submitGuess('Want more space')).to.equal(true);
+    round.submitGuess('Want more space');
     expect(round.correctGuesses).to.eql(['WANT MORE SPACE']);
+    expect(domUpdates.appendCorrectGuess).to.have.been.called(1);
     expect(round.players[0].score).to.equal(33);
     expect(round.turnCounter).to.equal(2);
   });
   it('should accurately evaluate an incorrect guess', () => {
-    expect(round.submitGuess('wrong')).to.equal(false);
+    round.submitGuess('wrong')
     expect(round.correctGuesses.length).to.equal(0);
     expect(round.players[0].score).to.equal(0);
     expect(round.turnCounter).to.equal(2)
@@ -54,14 +55,21 @@ describe('Round', () => {
     expect(round.players[0].score).to.equal(94);
     expect(round.correctGuesses).to.eql(['WANT MORE SPACE','FAMILY HAS GROWN']);
     expect(round.correctGuesses.length).to.equal(2);
-
   });
 
-
-  // it('should evaluate a guess', () => {
-  //   console.log(round.evaluateGuess('Want more space'))
-  //   expect(round.evaluateGuess('Family has grown')).to.equal(true);
-  // })
+  it('should be able to end a round', () => {
+    round.submitGuess('want more space');
+    round.submitGuess('family has grown');
+    round.submitGuess('can afford more');
+    expect(domUpdates.displayRoundModal).to.have.been.called(1)
+  });
+  it('should start a fast money round after two rounds', () => {
+    round.roundCounter = 2;
+    round.submitGuess('want more space');
+    round.submitGuess('family has grown');
+    round.submitGuess('can afford more');
+    expect(domUpdates.displayFastMoneyModal).to.have.been.called(1)
+  })
 
   //******* next method *****/
 

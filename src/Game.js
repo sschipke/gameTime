@@ -20,7 +20,6 @@ class Game {
     let player1 = new Player(1, p1);
     let player2 = new Player(2, p2);
     this.players.push(player1, player2);
-    domUpdates.appendPlayerNames(p1, p2);
   }
 
   selectSurvey() {

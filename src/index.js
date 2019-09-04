@@ -44,7 +44,7 @@ $('#start-game').click(() => {
 const startGame = (p1, p2, surveys, answers) => {
   game = new Game(surveys, answers);
   game.addPlayers(p1, p2);
-  // domUpdates.appendPlayerNames(p1, p2);
+  domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
   //hide round until button clicked
