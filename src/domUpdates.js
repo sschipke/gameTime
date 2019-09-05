@@ -18,7 +18,8 @@ displayQuestion(question) {
 },
 
 displayRound(count) {
-  count <= 2 ? $("#round-counter").text(count) : $("#round-counter").text("FAST MONEY")
+  let roundText = count <= 2 ? count : "FAST MONEY";
+  $('#round-counter').text(roundText);
 },
 
 displayStartModal(round) {
@@ -66,5 +67,14 @@ displayFastMoneyModal(round) {
     <p>*Be Ready! Timer will start when button is clicked*</p>
     <button id="close-modal-fast-money" class="close-modal" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
+
+finalModal() {
+
+},
+
+changeTimerColor() {
+  $('#timer').css('background-color', 'pink');
+},
+
 
 };

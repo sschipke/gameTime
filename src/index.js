@@ -16,7 +16,7 @@ import Game from './Game.js';
 import domUpdates from './domUpdates';
 
 
-let game;
+let game, timer, timeLeft, timerId;
 
 $(document).ready(() => {
   $('#start-game, #submit-guess').prop('disabled', true);
@@ -68,13 +68,12 @@ $('#submit-guess').click(() => {
 $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal')) {
     $('#answer1').text('1');
-    $('#score1').text('#');
     $('#answer2').text('2');
-    $('#score2').text('#');
     $('#answer3').text('3');
-    $('#score3').text('#');
+    $('#score1', '#score2', '#score3').text('#');
     game.startRound();
     $('.round-modal').remove();
+    startTimer();
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
@@ -83,4 +82,26 @@ $('#game-page').click((e) => {
   // $('#close-modal').remove('#round-modal');
 });
 
-})
+function startTimer() {
+	timer = document.getElementById('timer');
+  timeLeft = 30;
+  timerId = setInterval(countdown, 1000);
+};
+
+function countdown() {
+  timer.style.color = 'black';
+  if (timeLeft == -1) {
+    clearTimeout(timerId);
+//  showFinalModal();
+    timer.innerHTML = 'TIME: 30 SEC'
+  } else if(timeLeft <= 5) {
+    timer.style.color = '#F05355';
+    timer.innerHTML = `TIME: ${timeLeft} SEC`;
+    timeLeft--;
+  } else {
+    timer.innerHTML = `TIME: ${timeLeft} SEC`;
+    timeLeft--;
+  }
+};
+
+});

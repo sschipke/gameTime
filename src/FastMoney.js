@@ -1,21 +1,16 @@
 import Round from './Round.js';
+import domUpdates from './domUpdates.js'
+
+let domUpdate = domUpdates;
 
 class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {
     super(survey, answers, players);
-    this.timer = 30000;
-    // this.multiplier = multiplier || 1;
     this.player1Guesses = [];
     this.player2Guesses = [];
     this.player1Score = 0;
     this.player2Score = 0;
-  }
-
-  startTimer() {
-    // console.log('TIME START');
-    // this.setTimeout(() => {
-      // console.log('TIMES UP'), this.timer;
-    // });
+    this.timer = 30;
   }
 
   logGuesses(playerID, guess) {
