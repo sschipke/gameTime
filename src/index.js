@@ -73,7 +73,7 @@ $('#game-page').click((e) => {
     $('#score1', '#score2', '#score3').text('#');
     game.startRound();
     $('.round-modal').remove();
-
+    startTimer()
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
@@ -82,4 +82,26 @@ $('#game-page').click((e) => {
   // $('#close-modal').remove('#round-modal');
 });
 
-})
+function countdown(timerId) {
+    elem.style.color = 'black';
+    if (timeLeft == -1) {
+        clearTimeout(timerId);
+//         showFinalModal();
+        elem.innerHTML = 'TIME: 30 SEC'
+    } else if(timeLeft <= 5) {
+      elem.style.color = '#F05355';
+      elem.innerHTML = `TIME: ${timeLeft} SEC`;
+      timeLeft--;
+    } else {
+        elem.innerHTML = `TIME: ${timeLeft} SEC`;
+        timeLeft--;
+    }
+}
+
+});
+
+function startTimer() {
+  timerId = setInterval(countdown, 1000);
+  timeLeft = 30;
+	elem = document.getElementById('timer');
+}

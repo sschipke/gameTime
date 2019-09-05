@@ -18,7 +18,7 @@ displayQuestion(question) {
 },
 
 displayRound(count) {
-  let roundText = count <= 2 ? $count : "FAST MONEY";
+  let roundText = count <= 2 ? count : "FAST MONEY";
   $('#round-counter').text(roundText);
 },
 
