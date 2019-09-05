@@ -5,12 +5,6 @@ class Player {
     this.score = 0;
     this.multiplier = 1;
   }
-
-  updateScore(points) {
-    this.score += points;
-  }
-
 }
 
 export default Player;
-  

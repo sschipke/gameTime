@@ -45,7 +45,7 @@ class Round {
 
   endRound() {
     if (this.correctGuesses.length === 3) {
-      this.roundCounter <= 1 ? domUpdates.displayRoundModal(this.roundCounter) : domUpdates.displayFastMoneyModal('FAST MONEY');
+      this.roundCounter <= 1 ? domUpdates.displayRoundModal(this.roundCounter + 1) : domUpdates.displayFastMoneyModal('FAST MONEY');
     }
   }
 

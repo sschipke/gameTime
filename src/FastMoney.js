@@ -4,7 +4,7 @@ class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {
     super(survey, answers, players);
     this.timer = 30000;
-    this.multiplier = multiplier || 1;
+    // this.multiplier = multiplier || 1;
     this.player1Guesses = [];
     this.player2Guesses = [];
     this.player1Score = 0;

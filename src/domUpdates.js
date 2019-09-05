@@ -59,12 +59,12 @@ displayFastMoneyModal(round) {
     </ul>
     <div id="multi-inputs">
     <label for="p1-multi">Player 1 Multiplier</label>
-    <input id="p1-multi" class="multipliers" type="number" placeholder="Enter Number 1 - 5">
+    <input id="p1-multi" class="multipliers" type="number" min="1" max="5" placeholder="Enter Number 1 - 5">
     <label for="p2-multi">Player 2 Multiplier</label>
-    <input id="p2-multi" class="multipliers" type="number" placeholder="Enter Number 1 - 5">
+    <input id="p2-multi" class="multipliers" type="number" min="1" max="5" placeholder="Enter Number 1 - 5">
     </div>
     <p>*Be Ready! Timer will start when button is clicked*</p>
-    <button class="close-modal" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
+    <button id="close-modal-fast-money" class="close-modal" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
 };
