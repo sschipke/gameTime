@@ -19,11 +19,8 @@ import domUpdates from './domUpdates';
 let game;
 
 $(document).ready(() => {
-  $('#start-game').prop('disabled', true);
-  $('#submit-guess').prop('disabled', true);
-  $('#game-page').hide();
-  $('#player2-carrot').hide();
-  $('#start-modal').hide();
+  $('#start-game, #submit-guess').prop('disabled', true);
+  $('#game-page, #player2-carrot, #start-modal').hide();
   // include all elements that should be hidded on page load, then we can show as/when needed
 
 $('.name-inputs').keyup(() => {
