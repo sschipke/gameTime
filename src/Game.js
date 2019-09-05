@@ -50,6 +50,7 @@ class Game {
     }
     domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
+    domUpdates.displayStartModal(this.roundCounter);
   }
 
 }
