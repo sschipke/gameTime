@@ -122,6 +122,10 @@ aside {
   text-align: center;
 }
 
+.innactive {
+  opacity: 0.3;
+}
+
 section {
   align-items: center;
   display: flex;
@@ -219,6 +223,21 @@ h4 {
 
 .h4-be {
   font-family: $backend-font;
+}
+
+.carrot {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% {
+    opacity: 0.5;
+  }
+  50% {
+    font-size: 6em;
+    opacity: 1;
+    color: black;
+  }
 }
 
 #modal-round {

@@ -62,6 +62,7 @@ $('#submit-guess').click(() => {
       game.currentRound.submitGuess($('#guess-input').val())
       $('#guess-input').val('')
       $('#submit-guess').prop('disabled', true)
+      $('#aside-player2, #aside-player1').toggleClass('innactive')
       $('#player2-carrot, #player1-carrot').toggle();
     } else {
       // game.currentRound.fastMoneyMethod
@@ -69,7 +70,7 @@ $('#submit-guess').click(() => {
 })
 
 $('#game-page').click((e) => {
-  if(e.target.id === 'close-modal') {
+  if(e.target.classList.contains('close-modal')) {
     $('#answer1').text('1');
     $('#score1').text('#');
     $('#answer2').text('2');
@@ -77,7 +78,7 @@ $('#game-page').click((e) => {
     $('#answer3').text('3');
     $('#score3').text('#');
     game.startRound();
-    $('#round-modal').remove();
+    $('.round-modal').remove();
   }
   // console.log(this);
   // $('#close-modal').remove('#round-modal');
