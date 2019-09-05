@@ -1,6 +1,4 @@
-$primary-background: white;
-$frontend-font: 'Abril Fatface';
-$backend-font: 'Roboto Mono';
+@import 'variables';
 
 //splash page
 body {
@@ -69,11 +67,11 @@ button {
   margin: 20px;
   padding: 20px;
   width: 200px;
-}
 
-button:disabled {
-  background-color: gray;
-  cursor: not-allowed;
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }
 
 // game page
@@ -172,8 +170,66 @@ main {
   background-color: white;
   align-items: center;
   justify-content: center;
-  height: 50%;
+  padding: 20px;
+  // height: 50%;
   width: 50%;
+}
+
+#start-modal-content {
+  display: flex;
+  // height: 75%;
+  width: 75%;
+}
+
+#modal-round {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 10px;
+}
+
+.modal-round {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 10px;
+}
+
+.modal-text {
+  font-family: sans-serif;
+  font-size: 25px;
+  width: 95%;
+}
+
+.multipliers {
+  height: 25px;
+  width: 100px;
+}
+
+#multi-inputs {
+  display: flex;
+}
+
+p {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+ul {
+  margin: 10px auto;
+}
+
+li {
+  list-style: none;
+  margin: 0 0 20px 0;
+}
+
+li:before {
+  content: '>';
+  margin-left: -20px;
+  margin-right: 10px;
 }
 
 h2 {
@@ -238,16 +294,4 @@ h4 {
     opacity: 1;
     color: black;
   }
-}
-
-#modal-round {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 60px;
-  margin-bottom: 10px;
-}
-
-.modal-text {
-  font-family: sans-serif;
-  font-size: 30px;
 }
