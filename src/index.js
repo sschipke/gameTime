@@ -23,8 +23,8 @@ $(document).ready(() => {
   $('#submit-guess').prop('disabled', true);
   $('#game-page').hide();
   $('#player2-carrot').hide();
+  $('#start-modal').hide();
   // include all elements that should be hidded on page load, then we can show as/when needed
-
 
 $('.name-inputs').keyup(() => {
   if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
@@ -47,7 +47,6 @@ const startGame = (p1, p2, surveys, answers) => {
   domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
-  //hide round until button clicked
   game.startRound();
 };
 
@@ -78,6 +77,9 @@ $('#game-page').click((e) => {
     $('#answer3').text('3');
     $('#score3').text('#');
     game.startRound();
+    $('.round-modal').remove();
+  }
+  if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
   // console.log(this);
