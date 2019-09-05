@@ -226,11 +226,13 @@ h4 {
 }
 
 .carrot {
-  opacity: .5;
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
+  0%,100% {
+    opacity: 0.5;
+  }
   50% {
     font-size: 6em;
     opacity: 1;
