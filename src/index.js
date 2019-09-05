@@ -62,6 +62,7 @@ $('#submit-guess').click(() => {
       game.currentRound.submitGuess($('#guess-input').val())
       $('#guess-input').val('')
       $('#submit-guess').prop('disabled', true)
+      $('#aside-player2, #aside-player1').toggleClass('innactive')
       $('#player2-carrot, #player1-carrot').toggle();
     } else {
       // game.currentRound.fastMoneyMethod
