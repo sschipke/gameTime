@@ -11,25 +11,24 @@ class FastMoney extends Round {
     this.player2Guesses = [];
     this.player1Score = 0;
     this.player2Score = 0;
+    this.timer = 30;
   }
 
   startTimer() {
     domUpdate.changeTimerColor();
-    let timer = 30;
-    let elem = document.getElementById('timer');
-    let timerId = setInterval(countdown, 1000);
-
-    function countdown() {
+    let timerInterval = 1000;
+    let domTimer = document.getElementById('timer');
+    let thisTimer = setInterval(timerDecriment, timerInterval);
+      function timerDecriment() {
       if (timer == -1) {
-        clearTimeout(timerId);
+        clearTimeout(thisTimer);
         domUpdate.fastMoneyModal();
       } else {
-        elem.innerHTML = timeLeft + ' seconds remaining';
-        timeLeft--;
+        domTimer.innerHTML = this.timer + ' seconds remaining';
+        this.timer--;
      }
-}
-
   }
+}
 
   logGuesses(playerID, guess) {
     playerID === 1 ? this.player1Guesses.push(guess) : this.player2Guesses.push(guess);
