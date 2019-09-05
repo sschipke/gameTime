@@ -14,20 +14,26 @@ class FastMoney extends Round {
     this.timer = 30;
   }
 
+  countdown(timerId) {
+    elem.css('color', 'black')
+    if (timeLeft == -1) {
+        clearTimeout(timerId);
+//         showFinalModal();
+        elem.text('TIME: 30 SEC')
+    } else if(timeLeft <= 5) {
+      elem.css('color', '#F05355');
+      elem.text(`TIME: ${timeLeft} SEC`);
+      timeLeft--;
+    } else {
+      elem.text(`TIME: ${timeLeft} SEC`);
+      timeLeft--;
+    }
+}
+
   startTimer() {
-    domUpdate.changeTimerColor();
-    let timerInterval = 1000;
-    let domTimer = document.getElementById('timer');
-    let thisTimer = setInterval(timerDecriment, timerInterval);
-      function timerDecriment() {
-      if (timer == -1) {
-        clearTimeout(thisTimer);
-        domUpdate.fastMoneyModal();
-      } else {
-        domTimer.innerHTML = this.timer + ' seconds remaining';
-        this.timer--;
-     }
-  }
+  timerId = setInterval(countdown, 1000);
+  timeLeft = 30;
+	elem = $('timer');
 }
 
   logGuesses(playerID, guess) {

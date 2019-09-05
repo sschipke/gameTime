@@ -68,13 +68,12 @@ $('#submit-guess').click(() => {
 $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal')) {
     $('#answer1').text('1');
-    $('#score1').text('#');
     $('#answer2').text('2');
-    $('#score2').text('#');
     $('#answer3').text('3');
-    $('#score3').text('#');
+    $('#score1', '#score2', '#score3').text('#');
     game.startRound();
     $('.round-modal').remove();
+
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
