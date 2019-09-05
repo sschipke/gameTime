@@ -27,15 +27,16 @@ displayStartModal(round) {
   <div id="start-modal-content" class="modal-content">
   <p class="modal-round">Ready to fued?</p>
   <p class="modal-round">ROUND: ${round}</p>
-  <p class="modal-text">Each player will alternate guessing the top 3 reponses to a question.
+  <ul>
+  <li class="modal-text">Each player will alternate guessing the top 3 reponses to a question.</li>
 
-  When a correct guess is made, that player's score will increase by the number of responses.
+ <li class="modal-text">When a correct guess is made, that player's score will increase by the number of responses.</li>
 
-  The round will end after all three responses have been guessed.
+  <li class="modal-text">The round will end after all three responses have been guessed.</li>
 
-  After 2 rounds you will play a FAST MONEY Round!
-
-  Player 1 get ready!
+  <li class="modal-text">After 2 rounds you will play a FAST MONEY Round!</li>
+</ul>
+  <p>Player 1 get ready!</p>
 
   </p><button class="close-modal-start" type="button">LET'S FUED!!!</button>
 
