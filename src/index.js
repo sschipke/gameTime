@@ -72,7 +72,8 @@ $('#game-page').click((e) => {
     $('#answer3').text('3');
     $('#score1', '#score2', '#score3').text('#');
     game.startRound();
-    $('.round-modal').remove();
+    game.currentRound.turnCounter++;
+    startRound2();
     startTimer();
   }
   if(e.target.classList.contains('close-modal-start')) {
@@ -81,6 +82,14 @@ $('#game-page').click((e) => {
   // console.log(this);
   // $('#close-modal').remove('#round-modal');
 });
+
+function startRound2() {
+  $('#aside-player2').removeClass('innactive');
+  $('#aside-player1').addClass('innactive');
+  $('#player1-carrot').hide();
+  $('.round-modal').remove();
+  $('#player2-carrot').show();
+}
 
 function startTimer() {
 	timer = document.getElementById('timer');
