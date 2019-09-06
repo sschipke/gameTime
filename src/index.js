@@ -102,14 +102,11 @@ $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
-<<<<<<< HEAD
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
   // console.log(this);
-  // $('#close-modal').remove('#round-modal');
-=======
->>>>>>> master
+  // $('#close-modal').remove('#round-modal');git
 });
 
 
