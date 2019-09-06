@@ -9,6 +9,7 @@ import './images/feud_subtitle.png';
 import './images/feud_splash_bkgd.png';
 import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
+import './images/feud_icon.png'
 
 import data from './data.js';
 
@@ -71,7 +72,7 @@ $('#submit-guess').on('keypress click', (e) => {
       $('#guess-input').val('');
       game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
     }
-  }  
+  }
 })
 
 $('.help').click(showHelpModal);
@@ -180,11 +181,10 @@ function countdown() {
 
   <li class="modal-text">Once you click the button below, you will lose all your progress</li>
 
-  <li class="modal-text">Click the button below to end the game</li>
   </ul>
-
-  </p><button class="end-modal">End Game!!</button>
-
+    <div class="endgame-buttons">
+      <button class="end-modal">End Game!!</button> <button class="return-game"> Return to Game </button>
+    </div>
   </div>
   </div>`).insertAfter('#main-survey-guess')
   }
