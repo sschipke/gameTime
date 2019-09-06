@@ -11,6 +11,7 @@ class FastMoney extends Round {
     this.player1Score = 0;
     this.player2Score = 0;
     this.timer = 30;
+    this.turnCounter = 1;
   }
 
   logGuesses(playerID, guess) {

@@ -61,7 +61,10 @@ $('#submit-guess').click(() => {
       $('#aside-player2, #aside-player1').toggleClass('innactive')
       $('#player2-carrot, #player1-carrot').toggle();
     } else {
-      // game.currentRound.fastMoneyMethod
+      let guess = $('#guess-input').val();
+      $('#guess-input').val('');
+      game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
+      console.log(game.currentRound.player1Guesses)
     }
 })
 
