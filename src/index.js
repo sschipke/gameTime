@@ -29,18 +29,20 @@ $('.name-inputs').keyup(() => {
   }
 })
 
-$('#start-game').click(() => {
+$('#start-game').on('keypress click', (e) => {
+  e.preventDefault();
+  if (e.which === 13 || e.type === 'click') {
   let player1 = $('#player1-input').val();
   let player2 = $('#player2-input').val();
   fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
   .then(response => response.json())
-  .then(data =>  startGame(player1, player2, data.data.surveys, data.data.answers))
+  .then(data =>  startGame(data.data.surveys, data.data.answers, player1, player2))
   .catch(err => console.log(err));
+  }
 });
 
-const startGame = (p1, p2, surveys, answers) => {
-  game = new Game(surveys, answers);
-  game.addPlayers(p1, p2);
+const startGame = (surveys, answers, p1, p2) => {
+  game = new Game(surveys, answers, p1, p2);
   domUpdates.appendPlayerNames(p1, p2);
   $('#splash-page').hide();
   $('#game-page').show();
@@ -53,7 +55,11 @@ $('#guess-input').keyup(() => {
     }
 })
 
-$('#submit-guess').click(() => {
+// we can tab to buttons to submit on enter, but still need to be able to submit on enter from input field
+
+$('#submit-guess').on('keypress click', (e) => {
+  e.preventDefault();
+  if (e.which === 13 || e.type === 'click') {
     if (game.roundCounter <= 2) {
       game.currentRound.submitGuess($('#guess-input').val())
       $('#guess-input').val('')
@@ -65,6 +71,7 @@ $('#submit-guess').click(() => {
       $('#guess-input').val('');
       game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
     }
+  }  
 })
 
 $('.help').click(showHelpModal);
@@ -75,10 +82,10 @@ $('#game-page').click((e) => {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
-    $('#score1', '#score2', '#score3').text('#');
+    $('#score1, #score2, #score3').text('#');
     game.startRound();
     game.currentRound.turnCounter++;
-    startRound2();
+    switchStartingPlayer();
     $('.round-modal').remove();
   }
   if(e.target.classList.contains('close-modal-start')) {
@@ -91,7 +98,7 @@ $('#game-page').click((e) => {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
-    $('#score1', '#score2', '#score3').text('#');
+    $('#score1, #score2, #score3').text('#');
     let p1Multi = e.target.closest('#multi-inputs').querySelector('#p1-multi').value;
     let p2Multi = e.target.closest('#multi-inputs').querySelector('#p2-multi').value;
     getMultipliers(p1Multi, p2Multi)
@@ -105,13 +112,11 @@ $('#game-page').click((e) => {
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
-  // console.log(this);
-  // $('#close-modal').remove('#round-modal');git
 });
 
 
 
-function startRound2() {
+function switchStartingPlayer() {
   $('#aside-player2').removeClass('innactive');
   $('#aside-player1').addClass('innactive');
   $('#player1-carrot').hide();

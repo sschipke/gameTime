@@ -32,9 +32,4 @@ describe('Player', () => {
     expect(player.score).to.equal(0);
   });
 
-  it('should update the score', () => {
-    player.updateScore(25);
-    expect(player.score).to.equal(25);
-  });
-
 });

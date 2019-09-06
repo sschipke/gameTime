@@ -12,7 +12,7 @@ describe('Fast Money', () => {
 
     answers = [{ answer: 'Beer', respondents: 67, surveyId: 1 }, { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }, { answer: 'Donuts', respondents: 24, surveyId: 1 }];
 
-    players = [{ id : 1, name: 'Bob', score: 0 }, { id : 2, name: 'Joe', score: 0 }];
+    players = [{ id : 1, name: 'Bob', score: 0, multiplier: 2, fmGuesses: [], fmScore: 0 }, { id : 2, name: 'Joe', score: 0, multiplier: 3, fmGuesses: [], fmScore: 0 }];
 
     fastMoney = new FastMoney(surveys, answers, players, 1);
   });
@@ -25,14 +25,14 @@ describe('Fast Money', () => {
     expect(fastMoney.correctGuesses).to.deep.equal([]);
   });
 
-  it('should have a timer', () => {
-    expect(fastMoney.startTimer()).to.equal();
-  });
-
   it('should be able to log user guesses', () => {
     fastMoney.logGuesses(1, 'Beer');
     fastMoney.logGuesses(1, 'Donuts');
-    fastMoney.compareGuesses(1);
-    expect(fastMoney.player1Score).to.equal(91);
+    fastMoney.logGuesses(2, 'Bowling Ball');
+    let here = fastMoney.checkGuesses();
+    // console.log(here)
+    expect(fastMoney.players[0].fmScore).to.equal(182);
   });
+
+  // need to add more tests and chai spies
 });

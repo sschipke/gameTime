@@ -1,29 +1,47 @@
 import Round from './Round.js';
-import domUpdates from './domUpdates.js'
-
-let domUpdate = domUpdates;
+import domUpdates from './domUpdates.js';
 
 class FastMoney extends Round {
-  constructor(survey, answers, players, multiplier) {
+  constructor(survey, answers, players) {
     super(survey, answers, players);
-    this.player1Guesses = [];
-    this.player2Guesses = [];
-    this.player1Score = 0;
-    this.player2Score = 0;
     this.timer = 30;
     this.turnCounter = 1;
   }
 
   logGuesses(playerID, guess) {
-    playerID === 1 ? this.player1Guesses.push(guess) : this.player2Guesses.push(guess);
+    playerID === 1 ? this.players[0].fmGuesses.push(guess.toUpperCase()) : this.players[1].fmGuesses.push(guess.toUpperCase());
   }
 
-  compareGuesses(playerID) {
-    if(playerID === 1) {
-      return this.answers.filter(answer => this.player1Guesses.includes(answer.answer)).forEach((response) => this.player1Score += response.respondents) * this.multiplier;
-    } else {
-      return this.answers.filter(answer => this.player2Guesses.includes(answer.answer)).forEach((response) => this.player2Score += response.respondents) * this.multiplier;
-    }
+  checkGuesses() {
+    this.players = this.players.map(player => {
+      this.answers.filter(answer => player.fmGuesses.includes(answer.answer.toUpperCase())).forEach((response) => player.fmScore += (response.respondents * player.multiplier));
+      return player;
+    });
+  }
+
+  getFinalScores() {
+    this.players = this.players.map(player => {
+      if (player.fmScore === 0) {
+        player.score -= player.multiplier * player.fmGuesses.length;
+        return player
+      } else {
+        player.score += player.fmScore;
+        return player;
+      }
+    });
+  }
+
+  findWinner() {
+    return this.players.sort((a, b) => b.score - a.score);
+  }
+
+  endGame() {
+    this.checkGuesses();
+    this.getFinalScores();
+    let winner = this.findWinner()[0];
+    let loser = this.findWinner()[1];
+    // domUpdates.displayWinnerModal(winner, loser);
+
   }
 
 }

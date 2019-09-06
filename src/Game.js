@@ -5,10 +5,10 @@ import FastMoney from './FastMoney.js';
 import domUpdates from './domUpdates.js';
 
 class Game {
-  constructor(surveys, answers) {
+  constructor(surveys, answers, p1, p2) {
     this.surveys = surveys;
     this.answers = answers;
-    this.players = [];
+    this.players = this.addPlayers(p1, p2);
     this.roundCounter = 0;
     this.currentSurvey;
     this.currentAnswers;
@@ -19,7 +19,7 @@ class Game {
   addPlayers(p1, p2) {
     let player1 = new Player(1, p1);
     let player2 = new Player(2, p2);
-    this.players.push(player1, player2);
+    return [player1, player2];
   }
 
   selectSurvey() {
@@ -49,7 +49,7 @@ class Game {
     }
     domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
-    domUpdates.displayStartModal(this.roundCounter);
+    domUpdates.displayStartModal(this.roundCounter, this.players[0].name);
   }
 
 }
