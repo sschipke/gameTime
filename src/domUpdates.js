@@ -103,7 +103,7 @@ finalModal() {
 
 },
 
-finalModal() {
+displayWinnerModal(winner) {
 
 },
 

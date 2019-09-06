@@ -4,6 +4,8 @@ class Player {
     this.name = name;
     this.score = 0;
     this.multiplier = 1;
+    this.fmGuesses = [];
+    this.fmScore = 0;
   }
 }
 
