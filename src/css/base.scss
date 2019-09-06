@@ -59,7 +59,7 @@ a {
 }
 
 button {
-  background-color: #59D2ED;
+  background-color: $click-color;
   border: none;
   color: white;
   cursor: pointer;
@@ -294,4 +294,17 @@ h4 {
     opacity: 1;
     color: black;
   }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer p {
+  color: $click-color;
+  font-size: 1em;
+    &:hover {
+      cursor: pointer;
+    }
 }
