@@ -49,8 +49,6 @@ class Round {
       this.roundCounter <= 1 ? domUpdates.displayRoundModal(this.roundCounter + 1) : domUpdates.displayFastMoneyModal('FAST MONEY');
     }
   }
-
-
 }
 
-export default Round
+export default Round;

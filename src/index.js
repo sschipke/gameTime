@@ -71,7 +71,7 @@ $('#submit-guess').on('keypress click', (e) => {
       $('#guess-input').val('');
       game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
     }
-  }  
+  }
 })
 
 $('.help').click(showHelpModal);
@@ -114,8 +114,6 @@ $('#game-page').click((e) => {
   }
 });
 
-
-
 function switchStartingPlayer() {
   $('#aside-player2').removeClass('innactive');
   $('#aside-player1').addClass('innactive');
@@ -139,7 +137,6 @@ function countdown() {
     // enable button
     $('#submit-guess').prop('disabled', true);
     game.currentRound.roundCounter++;
-//  showFinalModal();
     timer.innerHTML = 'TIME: 30 SEC'
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
@@ -150,6 +147,9 @@ function countdown() {
     timeLeft--;
   }
 };
+
+//end game somewhere around HERE
+// fastmoney.endGame()
 
   function showHelpModal() {
     $(`<div id="help-modal" class="round-modal">
@@ -188,10 +188,10 @@ function countdown() {
   </div>
   </div>`).insertAfter('#main-survey-guess')
   }
+
 const getMultipliers = (p1, p2) => {
   game.players[0].multiplier = p1;
   game.players[1].multiplier = p2;
 }
-
 
 });
