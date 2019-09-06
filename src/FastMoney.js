@@ -4,12 +4,12 @@ import domUpdates from './domUpdates.js';
 class FastMoney extends Round {
   constructor(survey, answers, players) {
     super(survey, answers, players);
-    // this.timer = 30;
-    // this.turnCounter = 1;
+    console.log(this.players)
   }
 
   logGuesses(playerID, guess) {
     playerID === 1 ? this.players[0].fmGuesses.push(guess.toUpperCase()) : this.players[1].fmGuesses.push(guess.toUpperCase());
+    console.log('guesses', this.players)
   }
 
   checkGuesses() {
@@ -33,10 +33,6 @@ class FastMoney extends Round {
 
   findWinner() {
     return this.players.sort((a, b) => b.score - a.score)[0];
-  }
-
-  findLoser() {
-    return this.players.sort((a, b) => b.score - a.score)[1];
   }
 
   endGame() {

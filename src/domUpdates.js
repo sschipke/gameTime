@@ -52,14 +52,13 @@ displayRoundModal(round, p2) {
     <p id="modal-round" class="modal-text">ROUND: ${round}</p>
     <p class="modal-text">${p2} it is your turn to guess first!</p>
     <p>Click the button when you are ready.</p>
-    <button class="close-modal" type="button">Start Round 2</button>
+    <button class="close-modal start-round" type="button">Start Round 2</button>
     </div>
     </div>`).insertAfter('#main-survey-guess')
 },
 
 displayFastMoneyModal(round, p1, p2) {
-  $(`<div id="fastmoney-modal" class="round-modal">
-    <div class="modal-content">
+  $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">
     <p class="modal-round">Time to think fast!</p>
     <p class="modal-round">ROUND: ${round}</p>
     <ul>
@@ -68,18 +67,28 @@ displayFastMoneyModal(round, p1, p2) {
     <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
     <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
     </ul>
-    <div id="multi-inputs">
-   <label for="p1-multi">${p1}'s Multiplier</label>
-   <input id="p1-multi" class="multipliers" type="number" placeholder="Enter Number 1 - 5">
-   <label for="p2-multi">${p2}'s Multiplier</label>
-   <input id="p2-multi" class="multipliers" type="number" placeholder="Enter Number 1 - 5">
-    <p>*Be Ready ${p1}! You are going first.</p>
-    <p>Timer will start when button is clicked*</p>
-    <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button>
+    <div id="multipliers">
+      <label for="p1-multiplier">${p1}, Choose your Multiplier</label>
+      <select id="p1-multiplier">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label for="p2-multiplier">${p2}, Choose your Multiplier</label>
+      <select id="p2-multiplier">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
-    </div>
-    </div>`).insertAfter('#main-survey-guess')
+    <p>*Be Ready ${p1}! You are going first. Timer will start when button is clicked*</p>
+    <button class="close-modal fast-money-start" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
+
 displayFastMoneyModal2(round) {
   $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">
     <p class="modal-round">Time to think fast!</p>
@@ -93,38 +102,6 @@ displayFastMoneyModal2(round) {
     <p>*Be Ready! Timer will start when button is clicked*</p>
     <button class="close-modal-fast-money2" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
-
-// displayFastMoneyModal(round) {
-//   $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">
-//     <p class="modal-round">Time to think fast!</p>
-//     <p class="modal-round">ROUND: ${round}</p>
-//     <ul>
-//     <li>Each player will have 30 seconds to guess as many responses as they can.</li>
-//     <li>Before starting each player will choose a multiplier between 1 and 5.</li>
-//     <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
-//     <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
-//     </ul>
-//     <div class="multipliers>
-//       <label for="p1-multiplier">Player 1, Choose your Score</label>
-//       <select id="p1-multiplier">
-//         <option value="1">1</option>
-//         <option value="2">2</option>
-//         <option value="3">3</option>
-//         <option value="4">4</option>
-//         <option value="5">5</option>
-//       </select>
-//       <label for="p2-multiplier">Player 1, Choose your Score</label>
-//       <select id="p2-multiplier">
-//         <option value="1">1</option>
-//         <option value="2">2</option>
-//         <option value="3">3</option>
-//         <option value="4">4</option>
-//         <option value="5">5</option>
-//       </select>
-//     </div>
-//     <p>*Be Ready! Timer will start when button is clicked*</p>
-//     <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
-// },
 
 displayWinnerModal(winner, loser) {
 
