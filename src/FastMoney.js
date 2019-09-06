@@ -9,10 +9,6 @@ class FastMoney extends Round {
   logGuesses(guess) {
     let player = this.determineCurrentPlayer();
     player.fmGuesses.push(guess.toUpperCase());
-    console.log(this.players);
-    console.log('player', player)
-    console.log('turn count', this.turnCounter)
-    // playerID === 1 ? this.players[0].fmGuesses.push(guess.toUpperCase()) : this.players[1].fmGuesses.push(guess.toUpperCase());
   }
 
   checkGuesses() {
