@@ -66,6 +66,19 @@ displayFastMoneyModal(round) {
     <p>*Be Ready! Timer will start when button is clicked*</p>
     <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button></div></div></div>`).insertAfter('#main-survey-guess')
 },
+displayFastMoneyModal2(round) {
+  $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">
+    <p class="modal-round">Time to think fast!</p>
+    <p class="modal-round">ROUND: ${round}</p>
+    <ul>
+    <li>Each player will have 30 seconds to guess as many responses as they can.</li>
+    <li>Before starting each player will choose a multiplier between 1 and 5.</li>
+    <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
+    <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
+    </ul>
+    <p>*Be Ready! Timer will start when button is clicked*</p>
+    <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
+},
 
 // displayFastMoneyModal(round) {
 //   $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">

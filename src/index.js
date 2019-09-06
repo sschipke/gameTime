@@ -134,7 +134,7 @@ function countdown() {
     // enable button
     $('#submit-guess').prop('disabled', true);
     game.currentRound.roundCounter++;
-//  showFinalModal();
+    domUpdates.displayFastMoneyModal2('FAST MONEY');
     timer.innerHTML = 'TIME: 30 SEC'
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
