@@ -95,6 +95,10 @@ $('#game-page').click((e) => {
   if(e.target.classList.contains('return-game')) {
     $('#end-modal').remove();
   }
+  if(e.target.classList.contains('new-game')) {
+    $('#winner-modal').remove();
+    window.location.reload();
+  }
 });
 
 $('#game-page').click((e) => {
@@ -146,17 +150,9 @@ function startTimer() {
 function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
-    game.roundCounter++
     clearTimeout(timerId);
-    // prompt player two
-    // restart timer
-    // enable button
-    $('#submit-guess').prop('disabled', true);
-    domUpdates.displayFastMoneyModal2('FAST MONEY');
-    timer.innerHTML = 'TIME: 30 SEC'
-    if(game.roundCounter === 5) {
-
-    }
+    game.roundCounter++
+    countDOM()
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
     timer.innerHTML = `TIME: ${timeLeft} SEC`;
@@ -167,8 +163,17 @@ function countdown() {
   }
 };
 
-//end game somewhere around HERE
-// fastmoney.endGame()
+function countDOM() {
+  if (game.roundCounter < 6) {
+    $('#submit-guess').prop('disabled', true);
+    domUpdates.displayFastMoneyModal2('FAST MONEY');
+    timer.innerHTML = 'TIME: 30 SEC'
+  }
+  if (game.roundCounter >= 6) {
+  $('#submit-guess').prop('disabled', true);
+  game.currentRound.endGame()
+  }
+}
 
   function showHelpModal() {
     $(`<div id="help-modal" class="round-modal">

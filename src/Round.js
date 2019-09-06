@@ -9,7 +9,6 @@ class Round {
     this.answers = answers;
     this.correctGuesses = [];
     this.players = players;
-    // console.log(this.players)
     this.currentPlayer;
     this.turnCounter = 1;
     this.roundCounter = round;
