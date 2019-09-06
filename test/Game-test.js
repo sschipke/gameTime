@@ -7,7 +7,7 @@ import Game from '../src/Game.js';
 import data from '../src/data.js';
 import domUpdates from '../src/domUpdates.js';
 
-chai.spy.on(domUpdates, ['displayRound', 'displayQuestion'], () => {});
+chai.spy.on(domUpdates, ['displayRound', 'displayQuestion', 'displayStartModal'], () => {});
 
 // import Round from '../src/Round.js';
 
@@ -15,7 +15,7 @@ describe('Game', () => {
   let game;
 
   beforeEach(() => {
-    game = new Game(data.surveys, data.answers)
+    game = new Game(data.surveys, data.answers, 'Quinne', 'Scott')
   })
 
   it('should be a function', () => {
@@ -50,6 +50,7 @@ describe('Game', () => {
     expect(game.roundCounter).to.equal(2);
     expect(domUpdates.displayQuestion).to.have.been.called(2);
     expect(domUpdates.displayRound).to.have.been.called(2);
+    expect(domUpdates.displayStartModal).to.have.been.called(2);
   })
 
 })
