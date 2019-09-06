@@ -91,7 +91,7 @@ displayFastMoneyModal2(round) {
     <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
     </ul>
     <p>*Be Ready! Timer will start when button is clicked*</p>
-    <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
+    <button class="close-modal-fast-money2" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
 // displayFastMoneyModal(round) {
@@ -125,14 +125,6 @@ displayFastMoneyModal2(round) {
 //     <p>*Be Ready! Timer will start when button is clicked*</p>
 //     <button class="close-modal close-modal-fast-money" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 // },
-
-finalModal() {
-
-},
-
-displayWinnerModal(winner) {
-
-},
 
 changeTimerColor() {
   $('#timer').css('background-color', 'pink');

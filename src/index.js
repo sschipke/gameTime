@@ -112,9 +112,19 @@ $('#game-page').click((e) => {
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
+  if(e.target.classList.contains('close-modal-fast-money2')) {
+    console.log('on modal 2 close button')
+    startFastMoneyRound2();
+  }
 });
 
-
+function startFastMoneyRound2() {
+  $('#fastmoney-modal').remove();
+  switchStartingPlayer();
+  $('#player1-carrot').toggle();
+  $('#player2-carrot').toggle();
+  startTimer();
+}
 
 function switchStartingPlayer() {
   $('#aside-player2').removeClass('innactive');
