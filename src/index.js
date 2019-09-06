@@ -92,6 +92,9 @@ $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
+  if(e.target.classList.contains('return-game')) {
+    $('#end-modal').remove();
+  }
 });
 
 $('#game-page').click((e) => {
@@ -173,7 +176,7 @@ function countdown() {
 
   function showEndGameModal() {
     $(`<div id="end-modal" class="round-modal">
-  <div id="help-modal-content" class="modal-content">
+  <div id="end-modal-content" class="modal-content">
     <h2 class="end-warning">WAIT!!!</h2>
   <ul>
 
