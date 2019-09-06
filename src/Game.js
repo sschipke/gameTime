@@ -49,7 +49,7 @@ class Game {
     }
     domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
-    domUpdates.displayStartModal(this.roundCounter);
+    domUpdates.displayStartModal(this.roundCounter, this.players[0].name);
   }
 
 }
