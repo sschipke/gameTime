@@ -78,7 +78,7 @@ $('.help').click(showHelpModal);
 $('.endgame').click(showEndGameModal)
 
 $('#game-page').click((e) => {
-  if(e.target.classList.contains('close-modal')) {
+  if(e.target.classList.contains('start-round')) {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
@@ -94,13 +94,13 @@ $('#game-page').click((e) => {
 });
 
 $('#game-page').click((e) => {
-  if(e.target.classList.contains('close-modal-fast-money')) {
+  if(e.target.classList.contains('fast-money-start')) {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
     $('#score1, #score2, #score3').text('#');
-    let p1Multi = e.target.closest('#multi-inputs').querySelector('#p1-multi').value;
-    let p2Multi = e.target.closest('#multi-inputs').querySelector('#p2-multi').value;
+    let p1Multi = e.target.closest('#fastmoney-modal').querySelector('#p1-multiplier').value;
+    let p2Multi = e.target.closest('#fastmoney-modal').querySelector('#p2-multiplier').value;
     getMultipliers(p1Multi, p2Multi)
     game.startRound();
     $('.round-modal').remove();
