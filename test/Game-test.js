@@ -9,8 +9,6 @@ import domUpdates from '../src/domUpdates.js';
 
 chai.spy.on(domUpdates, ['displayRound', 'displayQuestion', 'displayStartModal'], () => {});
 
-// import Round from '../src/Round.js';
-
 describe('Game', () => {
   let game;
 
@@ -38,19 +36,19 @@ describe('Game', () => {
     expect(game.currentAnswers.length).to.eql(3);
   })
   
-  // it('should be able to start a round', () => {
-  //   game.startRound();
-  //   expect(game.round.answers.length).to.equal(3)
+  it('should be able to start a new round', () => {
+    game.startRound();
+    expect(game.currentRound.roundCounter).to.equal(1);
+    expect(domUpdates.displayQuestion).to.have.been.called(1);
+    expect(domUpdates.displayRound).to.have.been.called(1);
+    expect(domUpdates.displayStartModal).to.have.been.called(1);
 
-  // })
+  })
 
   it('should keep track of the current round', () => {
     game.startRound();
     game.startRound();
     expect(game.roundCounter).to.equal(2);
-    expect(domUpdates.displayQuestion).to.have.been.called(2);
-    expect(domUpdates.displayRound).to.have.been.called(2);
-    expect(domUpdates.displayStartModal).to.have.been.called(2);
   })
 
 })

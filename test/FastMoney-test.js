@@ -1,7 +1,15 @@
 import chai from 'chai';
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 
 import FastMoney from '../src/FastMoney.js';
+import Round from '../src/Round.js';
+import Player from '../src/Player.js';
+
+import domUpdates from '../src/domUpdates.js';
+  
+chai.spy.on(domUpdates, 'displayWinnerModal', () =>{});
 
 describe('Fast Money', () => {
 
@@ -32,6 +40,10 @@ describe('Fast Money', () => {
     let here = fastMoney.checkGuesses();
     // console.log(here)
     expect(fastMoney.players[0].fmScore).to.equal(182);
+  });
+
+  it('should be able to end the game', () => {
+
   });
 
   // need to add more tests and chai spies

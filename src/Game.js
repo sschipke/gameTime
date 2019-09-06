@@ -40,7 +40,7 @@ class Game {
 
   startRound() {
     this.getSurveyAnswers();
-    console.log(this.currentAnswers)
+    // console.log(this.currentAnswers)
     this.roundCounter++;
     if (this.roundCounter <= 2) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
