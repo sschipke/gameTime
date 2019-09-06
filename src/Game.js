@@ -9,7 +9,7 @@ class Game {
     this.surveys = surveys;
     this.answers = answers;
     this.players = [];
-    this.roundCounter = 1;
+    this.roundCounter = 0;
     this.currentSurvey;
     this.currentAnswers;
     this.usedSurveys = [0];
