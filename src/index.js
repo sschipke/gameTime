@@ -64,7 +64,6 @@ $('#submit-guess').click(() => {
       let guess = $('#guess-input').val();
       $('#guess-input').val('');
       game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
-      console.log(game.currentRound.player1Guesses)
     }
 })
 
@@ -110,6 +109,11 @@ function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
     clearTimeout(timerId);
+    // prompt player two
+    // restart timer
+    // enable button
+    $('#submit-guess').prop('disabled', true);
+    game.currentRound.roundCounter++;
 //  showFinalModal();
     timer.innerHTML = 'TIME: 30 SEC'
   } else if(timeLeft <= 5) {
