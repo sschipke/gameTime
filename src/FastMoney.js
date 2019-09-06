@@ -32,14 +32,15 @@ class FastMoney extends Round {
   }
 
   findWinner() {
-    return this.players.sort((a, b) => b.score - a.score)[0];
+    return this.players.sort((a, b) => b.score - a.score);
   }
 
   endGame() {
     this.checkGuesses();
     this.getFinalScores();
-    let winner = this.findWinner();
-    // domUpdates.displayWinnerModal(winner);
+    let winner = this.findWinner()[0];
+    let loser = this.findWinner()[1];
+    // domUpdates.displayWinnerModal(winner, loser);
 
   }
 
