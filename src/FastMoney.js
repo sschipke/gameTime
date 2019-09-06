@@ -24,6 +24,7 @@ class FastMoney extends Round {
       return this.answers.filter(answer => this.player2Guesses.includes(answer.answer)).forEach((response) => this.player2Score += response.respondents) * this.multiplier;
     }
   }
+
 }
 
 export default FastMoney;

@@ -73,13 +73,28 @@ $('#game-page').click((e) => {
     $('#score1', '#score2', '#score3').text('#');
     game.startRound();
     $('.round-modal').remove();
+  }
+  if(e.target.classList.contains('close-modal-start')) {
+    $('.round-modal').remove();
+  }
+});
+
+$('#game-page').click((e) => {
+  if(e.target.classList.contains('close-modal-fast-money')) {
+    $('#answer1').text('1');
+    $('#answer2').text('2');
+    $('#answer3').text('3');
+    $('#score1', '#score2', '#score3').text('#');
+    let p1Multi = e.target.closest('#multi-inputs').querySelector('#p1-multi').value;
+    let p2Multi = e.target.closest('#multi-inputs').querySelector('#p2-multi').value;
+    getMultipliers(p1Multi, p2Multi)
+    game.startRound();
+    $('.round-modal').remove();
     startTimer();
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
-  // console.log(this);
-  // $('#close-modal').remove('#round-modal');
 });
 
 function startTimer() {
@@ -103,5 +118,10 @@ function countdown() {
     timeLeft--;
   }
 };
+
+const getMultipliers = (p1, p2) => {
+  game.players[0].multiplier = p1;
+  game.players[1].multiplier = p2;
+}
 
 });
