@@ -9,6 +9,7 @@ import './images/feud_subtitle.png';
 import './images/feud_splash_bkgd.png';
 import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
+import './images/feud_icon.png'
 
 import data from './data.js';
 
@@ -71,7 +72,7 @@ $('#submit-guess').on('keypress click', (e) => {
       $('#guess-input').val('');
       game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
     }
-  }  
+  }
 })
 
 $('.help').click(showHelpModal);
@@ -90,6 +91,9 @@ $('#game-page').click((e) => {
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
+  }
+  if(e.target.classList.contains('return-game')) {
+    $('#end-modal').remove();
   }
 });
 
@@ -112,9 +116,18 @@ $('#game-page').click((e) => {
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
+  if(e.target.classList.contains('close-modal-fast-money2')) {
+    startFastMoneyRound2();
+  }
 });
 
-
+function startFastMoneyRound2() {
+  $('#fastmoney-modal').remove();
+  switchStartingPlayer();
+  $('#player1-carrot').toggle();
+  $('#player2-carrot').toggle();
+  startTimer();
+}
 
 function switchStartingPlayer() {
   $('#aside-player2').removeClass('innactive');
@@ -133,14 +146,17 @@ function startTimer() {
 function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
+    game.roundCounter++
     clearTimeout(timerId);
     // prompt player two
     // restart timer
     // enable button
     $('#submit-guess').prop('disabled', true);
-    game.currentRound.roundCounter++;
-//  showFinalModal();
+    domUpdates.displayFastMoneyModal2('FAST MONEY');
     timer.innerHTML = 'TIME: 30 SEC'
+    if(game.roundCounter === 5) {
+
+    }
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
     timer.innerHTML = `TIME: ${timeLeft} SEC`;
@@ -150,6 +166,9 @@ function countdown() {
     timeLeft--;
   }
 };
+
+//end game somewhere around HERE
+// fastmoney.endGame()
 
   function showHelpModal() {
     $(`<div id="help-modal" class="round-modal">
@@ -172,7 +191,7 @@ function countdown() {
 
   function showEndGameModal() {
     $(`<div id="end-modal" class="round-modal">
-  <div id="help-modal-content" class="modal-content">
+  <div id="end-modal-content" class="modal-content">
     <h2 class="end-warning">WAIT!!!</h2>
   <ul>
 
@@ -180,18 +199,17 @@ function countdown() {
 
   <li class="modal-text">Once you click the button below, you will lose all your progress</li>
 
-  <li class="modal-text">Click the button below to end the game</li>
   </ul>
-
-  </p><button class="end-modal">End Game!!</button>
-
+    <div class="endgame-buttons">
+      <button class="end-modal">End Game!!</button> <button class="return-game"> Return to Game </button>
+    </div>
   </div>
   </div>`).insertAfter('#main-survey-guess')
   }
+
 const getMultipliers = (p1, p2) => {
   game.players[0].multiplier = p1;
   game.players[1].multiplier = p2;
 }
-
 
 });

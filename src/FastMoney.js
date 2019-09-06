@@ -5,8 +5,6 @@ class FastMoney extends Round {
   constructor(survey, answers, players) {
     super(survey, answers, players);
     console.log(this.players)
-    this.timer = 30;
-    this.turnCounter = 1;
   }
 
   logGuesses(playerID, guess) {
@@ -42,10 +40,8 @@ class FastMoney extends Round {
     this.getFinalScores();
     let winner = this.findWinner()[0];
     let loser = this.findWinner()[1];
-    // domUpdates.displayWinnerModal(winner, loser);
-
+    domUpdates.displayWinnerModal(winner, loser);
   }
-
 }
 
 export default FastMoney;

@@ -89,12 +89,30 @@ displayFastMoneyModal(round, p1, p2) {
     <button class="close-modal fast-money-start" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
-finalModal() {
-
+displayFastMoneyModal2(round) {
+  $(`<div id="fastmoney-modal" class="round-modal"><div class="modal-content">
+    <p class="modal-round">Time to think fast!</p>
+    <p class="modal-round">ROUND: ${round}</p>
+    <ul>
+    <li>Each player will have 30 seconds to guess as many responses as they can.</li>
+    <li>Before starting each player will choose a multiplier between 1 and 5.</li>
+    <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
+    <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
+    </ul>
+    <p>*Be Ready! Timer will start when button is clicked*</p>
+    <button class="close-modal-fast-money2" type="button">Start FAST MONEY Round</button></div></div>`).insertAfter('#main-survey-guess')
 },
 
-displayWinnerModal(winner) {
-
+displayWinnerModal(winner, loser) {
+  $(`<div id="winner-modal" class="modal-content">
+   <h6>Game Over!</h6>
+   <h6>${winner.name} is the winner!!!</h6>
+   <p>The final score:</p>
+   <p>${winner.name} => ${winner.score}</p>
+   <p>${loser.name} => ${loser.score}</p>
+   <p>Great Job! Click below to play again.</p>
+   <button>git reset</button>
+   </div>`)
 },
 
 changeTimerColor() {
