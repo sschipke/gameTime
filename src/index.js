@@ -65,6 +65,9 @@ $('#submit-guess').click(() => {
     }
 })
 
+$('.help').click(showHelpModal);
+$('.endgame').click(showEndGameModal)
+
 $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal')) {
     $('#answer1').text('1');
@@ -79,9 +82,14 @@ $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
+  if (e.target.classList.contains('end-modal')) {
+    window.location.reload();
+  }
   // console.log(this);
   // $('#close-modal').remove('#round-modal');
 });
+
+
 
 function startRound2() {
   $('#aside-player2').removeClass('innactive');
@@ -112,5 +120,43 @@ function countdown() {
     timeLeft--;
   }
 };
+
+  function showHelpModal() {
+    $(`<div id="help-modal" class="round-modal">
+  <div id="help-modal-content" class="modal-content">
+  <ul>
+  <li class="modal-text">Each player will alternate guessing the top 3 reponses to a question.</li>
+
+  <li class="modal-text">When a correct guess is made, that player's score will increase by the number of responses.</li>
+
+  <li class="modal-text">The round will end after all three responses have been guessed.</li>
+
+  <li class="modal-text">After 2 rounds you will play a FAST MONEY Round!</li>
+  </ul>
+
+  </p><button class="close-modal-start" type="button">Close</button>
+
+  </div>
+  </div>`).insertAfter('#main-survey-guess')
+  }
+
+  function showEndGameModal() {
+    $(`<div id="end-modal" class="round-modal">
+  <div id="help-modal-content" class="modal-content">
+    <h2 class="end-warning">WAIT!!!</h2>
+  <ul>
+
+  <li class="modal-text">Are you sure you want quit??</li>
+
+  <li class="modal-text">Once you click the button below, you will lose all your progress</li>
+
+  <li class="modal-text">Click the button below to end the game</li>
+  </ul>
+
+  </p><button class="end-modal">End Game!!</button>
+
+  </div>
+  </div>`).insertAfter('#main-survey-guess')
+  }
 
 });
