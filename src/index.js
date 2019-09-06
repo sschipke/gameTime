@@ -113,7 +113,6 @@ $('#game-page').click((e) => {
     window.location.reload();
   }
   if(e.target.classList.contains('close-modal-fast-money2')) {
-    console.log('on modal 2 close button')
     startFastMoneyRound2();
   }
 });
@@ -143,14 +142,17 @@ function startTimer() {
 function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
+    game.roundCounter++
     clearTimeout(timerId);
     // prompt player two
     // restart timer
     // enable button
     $('#submit-guess').prop('disabled', true);
-    game.currentRound.roundCounter++;
     domUpdates.displayFastMoneyModal2('FAST MONEY');
     timer.innerHTML = 'TIME: 30 SEC'
+    if(game.roundCounter === 5) {
+
+    }
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
     timer.innerHTML = `TIME: ${timeLeft} SEC`;

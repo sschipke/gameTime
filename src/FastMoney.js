@@ -4,8 +4,8 @@ import domUpdates from './domUpdates.js';
 class FastMoney extends Round {
   constructor(survey, answers, players) {
     super(survey, answers, players);
-    this.timer = 30;
-    this.turnCounter = 1;
+    // this.timer = 30;
+    // this.turnCounter = 1;
   }
 
   logGuesses(playerID, guess) {
