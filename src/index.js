@@ -61,7 +61,9 @@ $('#submit-guess').click(() => {
       $('#aside-player2, #aside-player1').toggleClass('innactive')
       $('#player2-carrot, #player1-carrot').toggle();
     } else {
-      // game.currentRound.fastMoneyMethod
+      let guess = $('#guess-input').val();
+      $('#guess-input').val('');
+      game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
     }
 })
 
@@ -77,16 +79,37 @@ $('#game-page').click((e) => {
     game.startRound();
     game.currentRound.turnCounter++;
     startRound2();
+    $('.round-modal').remove();
+  }
+  if(e.target.classList.contains('close-modal-start')) {
+    $('.round-modal').remove();
+  }
+});
+
+$('#game-page').click((e) => {
+  if(e.target.classList.contains('close-modal-fast-money')) {
+    $('#answer1').text('1');
+    $('#answer2').text('2');
+    $('#answer3').text('3');
+    $('#score1', '#score2', '#score3').text('#');
+    let p1Multi = e.target.closest('#multi-inputs').querySelector('#p1-multi').value;
+    let p2Multi = e.target.closest('#multi-inputs').querySelector('#p2-multi').value;
+    getMultipliers(p1Multi, p2Multi)
+    game.startRound();
+    $('.round-modal').remove();
     startTimer();
   }
   if(e.target.classList.contains('close-modal-start')) {
     $('.round-modal').remove();
   }
+<<<<<<< HEAD
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
   // console.log(this);
   // $('#close-modal').remove('#round-modal');
+=======
+>>>>>>> master
 });
 
 
@@ -109,6 +132,11 @@ function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
     clearTimeout(timerId);
+    // prompt player two
+    // restart timer
+    // enable button
+    $('#submit-guess').prop('disabled', true);
+    game.currentRound.roundCounter++;
 //  showFinalModal();
     timer.innerHTML = 'TIME: 30 SEC'
   } else if(timeLeft <= 5) {
@@ -158,5 +186,10 @@ function countdown() {
   </div>
   </div>`).insertAfter('#main-survey-guess')
   }
+const getMultipliers = (p1, p2) => {
+  game.players[0].multiplier = p1;
+  game.players[1].multiplier = p2;
+}
+
 
 });

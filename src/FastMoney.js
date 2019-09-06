@@ -6,12 +6,12 @@ let domUpdate = domUpdates;
 class FastMoney extends Round {
   constructor(survey, answers, players, multiplier) {
     super(survey, answers, players);
-    this.multiplier = multiplier || 1;
     this.player1Guesses = [];
     this.player2Guesses = [];
     this.player1Score = 0;
     this.player2Score = 0;
     this.timer = 30;
+    this.turnCounter = 1;
   }
 
   logGuesses(playerID, guess) {
@@ -25,6 +25,7 @@ class FastMoney extends Round {
       return this.answers.filter(answer => this.player2Guesses.includes(answer.answer)).forEach((response) => this.player2Score += response.respondents) * this.multiplier;
     }
   }
+
 }
 
 export default FastMoney;
