@@ -70,7 +70,7 @@ $('#submit-guess').on('keypress click', (e) => {
     } else {
       let guess = $('#guess-input').val();
       $('#guess-input').val('');
-      game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
+      game.currentRound.logGuesses(guess)
     }
   }
 })
@@ -151,8 +151,8 @@ function countdown() {
   timer.style.color = 'black';
   if (timeLeft == -1) {
     clearTimeout(timerId);
-    game.roundCounter++
     countDOM()
+    game.currentRound.turnCounter++
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
     timer.innerHTML = `TIME: ${timeLeft} SEC`;
@@ -164,12 +164,13 @@ function countdown() {
 };
 
 function countDOM() {
-  if (game.roundCounter < 6) {
+  console.log(game.currentRound.turnCounter)
+  if (game.currentRound.turnCounter === 1) {
     $('#submit-guess').prop('disabled', true);
     domUpdates.displayFastMoneyModal2('FAST MONEY');
     timer.innerHTML = 'TIME: 30 SEC'
   }
-  if (game.roundCounter >= 6) {
+  if (game.currentRound.turnCounter === 2) {
   $('#submit-guess').prop('disabled', true);
   game.currentRound.endGame()
   }
