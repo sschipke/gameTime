@@ -7,11 +7,11 @@ class Round {
   constructor(survey, answers, players, round) {
     this.survey = survey;
     this.answers = answers;
-    this.correctGuesses = [];
     this.players = players;
-    this.currentPlayer;
     this.turnCounter = 1;
+    this.currentPlayer;
     this.roundCounter = round;
+    this.correctGuesses = [];
   }
 
   determineCurrentPlayer() {

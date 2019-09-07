@@ -1,9 +1,7 @@
 import $ from 'jquery';
 
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/feud_title.png';
 import './images/feud_subtitle.png';
 import './images/feud_splash_bkgd.png';
@@ -11,7 +9,7 @@ import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
 import './images/feud_icon.png'
 
-import data from './data.js';
+// import data from './data.js';
 
 import Game from './Game.js';
 import domUpdates from './domUpdates';
@@ -22,7 +20,7 @@ let game, timer, timeLeft, timerId;
 $(document).ready(() => {
   $('#start-game, #submit-guess').prop('disabled', true);
   $('#game-page, #player2-carrot, #start-modal').hide();
-  // include all elements that should be hidded on page load, then we can show as/when needed
+ 
 
 $('.name-inputs').keyup(() => {
   if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
@@ -70,13 +68,13 @@ $('#submit-guess').on('keypress click', (e) => {
     } else {
       let guess = $('#guess-input').val();
       $('#guess-input').val('');
-      game.currentRound.logGuesses(game.currentRound.turnCounter, guess)
+      game.currentRound.logGuesses(guess)
     }
   }
 })
 
 $('.help').click(showHelpModal);
-$('.endgame').click(showEndGameModal)
+$('.endgame').click(showEndGameModal);
 
 $('#game-page').click((e) => {
   if(e.target.classList.contains('start-round')) {
@@ -94,6 +92,10 @@ $('#game-page').click((e) => {
   }
   if(e.target.classList.contains('return-game')) {
     $('#end-modal').remove();
+  }
+  if(e.target.classList.contains('new-game')) {
+    $('#winner-modal').remove();
+    window.location.reload();
   }
 });
 
@@ -121,7 +123,7 @@ $('#game-page').click((e) => {
   }
 });
 
-function startFastMoneyRound2() {
+const startFastMoneyRound2 = () => {
   $('#fastmoney-modal').remove();
   switchStartingPlayer();
   $('#player1-carrot').toggle();
@@ -129,7 +131,7 @@ function startFastMoneyRound2() {
   startTimer();
 }
 
-function switchStartingPlayer() {
+const switchStartingPlayer = () => {
   $('#aside-player2').removeClass('innactive');
   $('#aside-player1').addClass('innactive');
   $('#player1-carrot').hide();
@@ -137,26 +139,18 @@ function switchStartingPlayer() {
   $('#player2-carrot').show();
 }
 
-function startTimer() {
+const startTimer = () => {
 	timer = document.getElementById('timer');
   timeLeft = 30;
   timerId = setInterval(countdown, 1000);
 };
 
-function countdown() {
+const countdown = () => {
   timer.style.color = 'black';
   if (timeLeft == -1) {
-    game.roundCounter++
     clearTimeout(timerId);
-    // prompt player two
-    // restart timer
-    // enable button
-    $('#submit-guess').prop('disabled', true);
-    domUpdates.displayFastMoneyModal2('FAST MONEY');
-    timer.innerHTML = 'TIME: 30 SEC'
-    if(game.roundCounter === 5) {
-
-    }
+    countDOM()
+    game.currentRound.turnCounter++
   } else if(timeLeft <= 5) {
     timer.style.color = '#F05355';
     timer.innerHTML = `TIME: ${timeLeft} SEC`;
@@ -167,10 +161,20 @@ function countdown() {
   }
 };
 
-//end game somewhere around HERE
-// fastmoney.endGame()
+const countDOM = () => {
+  console.log(game.currentRound.turnCounter)
+  if (game.currentRound.turnCounter === 1) {
+    $('#submit-guess').prop('disabled', true);
+    domUpdates.displayFastMoneyModal2('FAST MONEY');
+    timer.innerHTML = 'TIME: 30 SEC'
+  }
+  if (game.currentRound.turnCounter === 2) {
+  $('#submit-guess').prop('disabled', true);
+  game.currentRound.endGame()
+  }
+}
 
-  function showHelpModal() {
+function showHelpModal() {
     $(`<div id="help-modal" class="round-modal">
   <div id="help-modal-content" class="modal-content">
   <ul>
@@ -189,7 +193,7 @@ function countdown() {
   </div>`).insertAfter('#main-survey-guess')
   }
 
-  function showEndGameModal() {
+function showEndGameModal() {
     $(`<div id="end-modal" class="round-modal">
   <div id="end-modal-content" class="modal-content">
     <h2 class="end-warning">WAIT!!!</h2>

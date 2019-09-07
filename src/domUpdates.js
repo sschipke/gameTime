@@ -104,15 +104,16 @@ displayFastMoneyModal2(round) {
 },
 
 displayWinnerModal(winner, loser) {
-  $(`<div id="winner-modal" class="modal-content">
+
+  $(`<div id="winner-modal" class="modal-content round-modal">
    <h6>Game Over!</h6>
    <h6>${winner.name} is the winner!!!</h6>
    <p>The final score:</p>
    <p>${winner.name} => ${winner.score}</p>
    <p>${loser.name} => ${loser.score}</p>
    <p>Great Job! Click below to play again.</p>
-   <button>git reset</button>
-   </div>`)
+   <button class="new-game">git reset</button>
+   </div>`).insertAfter('#main-survey-guess')
 },
 
 changeTimerColor() {
