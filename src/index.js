@@ -17,47 +17,66 @@ import domUpdates from './domUpdates';
 let game, timer, timeLeft, timerId;
 
 $(document).ready(() => {
+
   let $guessInput = $('#guess-input');
   $('#start-game, #submit-guess').prop('disabled', true);
   $('#game-page, #player2-carrot, #start-modal').hide();
   // include all elements that should be hidded on page load, then we can show as/when needed
+  
+  $('.name-inputs').keyup(() => {
+    if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
+      $('#start-game').prop('disabled', false);
+    }
+  })
+  
+  $('#start-game').on('keypress click', (e) => {
+    e.preventDefault();
+    if (e.which === 13 || e.type === 'click') {
+      let player1 = $('#player1-input').val();
+      let player2 = $('#player2-input').val();
+      fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+      .then(response => response.json())
+      .then(data =>  startGame(data.data.surveys, data.data.answers, player1, player2))
+      .catch(err => console.log(err));
+      $('#guess-input').attr('placeholder', `${player1} enter a guess`)
+    }
+  });
+  
+  const startGame = (surveys, answers, p1, p2) => {
+    game = new Game(surveys, answers, p1, p2);
+    domUpdates.appendPlayerNames(p1, p2);
+    $('#splash-page').hide();
+    $('#game-page').show();
+    game.startRound();
+  };
 
-$('.name-inputs').keyup(() => {
-  if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
-    $('#start-game').prop('disabled', false);
-  }
-})
 
-$('#start-game').on('keypress click', (e) => {
-  e.preventDefault();
-  if (e.which === 13 || e.type === 'click') {
-  let player1 = $('#player1-input').val();
-  let player2 = $('#player2-input').val();
-  fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
-  .then(response => response.json())
-  .then(data =>  startGame(data.data.surveys, data.data.answers, player1, player2))
-  .catch(err => console.log(err));
-  }
-});
 
-const startGame = (surveys, answers, p1, p2) => {
-  game = new Game(surveys, answers, p1, p2);
-  domUpdates.appendPlayerNames(p1, p2);
-  $('#splash-page').hide();
-  $('#game-page').show();
-  game.startRound();
-};
-
-$('#guess-input').keyup(() => {
-  if ($('#guess-input').val() !== '') {
+  
+  $('#guess-input').keyup((e) => {
+    if ($('#guess-input').val() !== '') {
       $('#submit-guess').prop('disabled', false);
     }
-})
-
-// we can tab to buttons to submit on enter, but still need to be able to submit on enter from input field
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      if (game.roundCounter <= 2) {
+        game.currentRound.submitGuess($('#guess-input').val())
+        $('#guess-input').val('')
+        $('#submit-guess').prop('disabled', true)
+        $('#aside-player2, #aside-player1').toggleClass('innactive')
+        $('#player2-carrot, #player1-carrot').toggle(); setInputText();
+      } else {
+        let guess = $('#guess-input').val();
+        $('#guess-input').val('');
+        game.currentRound.logGuesses(guess)
+        setInputText();
+      }
+    }
+  }
+  )
 
 $('#submit-guess').on('keypress click', (e) => {
-  // all we need is to add an event listener to the input and make sure enter is hit, we may neee to put the below into a handler if (e.keycode === 13) {functions}
+  // all we need is to add an event listener to the input and make sure enter is hit, we may need to put the below into a handler if (e.keycode === 13) {functions}
   e.preventDefault();
   if (e.which === 13 || e.type === 'click') {
     if (game.roundCounter <= 2) {
@@ -66,10 +85,12 @@ $('#submit-guess').on('keypress click', (e) => {
       $('#submit-guess').prop('disabled', true)
       $('#aside-player2, #aside-player1').toggleClass('innactive')
       $('#player2-carrot, #player1-carrot').toggle();
+      setInputText();
     } else {
       let guess = $('#guess-input').val();
       $('#guess-input').val('');
       game.currentRound.logGuesses(guess)
+      setInputText();
     }
   }
 })
@@ -129,6 +150,7 @@ function startFastMoneyRound2() {
   switchStartingPlayer();
   $('#player1-carrot').toggle();
   $('#player2-carrot').toggle();
+  setInputText();
   startTimer();
 }
 
@@ -210,6 +232,14 @@ function countDOM() {
     </div>
   </div>
   </div>`).insertAfter('#main-survey-guess')
+  }
+
+  const setInputText = () => {
+    if (game.currentRound.determineCurrentPlayer().id ===1 ) {
+      $('#guess-input').attr('placeholder', `${game.players[0].name} enter your guess`)
+    } else {
+      $('#guess-input').attr('placeholder', `${game.players[1].name} enter your guess`)
+    }
   }
 
 const getMultipliers = (p1, p2) => {
