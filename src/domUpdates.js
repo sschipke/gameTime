@@ -83,7 +83,7 @@ displayFastMoneyModal(round, p1, p2) {
             </select>
           </div>
         <h6>Be ready ${p1}! You are going first!</h6>
-        <p>Timer will start when button is clicked</p>
+        <p>Timer will start when button is clicked.</p>
         <button class="close-modal-fast-money" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
@@ -105,9 +105,9 @@ displayWinnerModal(winner, loser) {
       <div class="modal-content">
          <h6>Game over!</h6>
          <h6>${winner.name} is the winner!!!</h6>
-         <p>The final score:</p>
-         <p>${winner.name} > ${winner.score}</p>
-         <p>${loser.name} > ${loser.score}</p>
+         <p class="winner-p">The final score:</p>
+         <p class="winner-p">${winner.name} > ${winner.score}</p>
+         <p class="winner-p">${loser.name} > ${loser.score}</p>
          <h6>Great job!</h6>
          <p>Click below to play again.</p>
          <button class="new-game">git reset</button>
