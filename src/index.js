@@ -158,7 +158,7 @@ function countDOM() {
   console.log(game.currentRound.turnCounter)
   if (game.currentRound.turnCounter === 1) {
     $('#submit-guess').prop('disabled', true);
-    domUpdates.displayFastMoneyModal2('FAST MONEY');
+    domUpdates.displayFastMoneyModal2('FAST MONEY', game.players[1].name);
     timer.innerHTML = 'TIME: 30 SEC'
   }
   if (game.currentRound.turnCounter === 2) {
@@ -169,33 +169,33 @@ function countDOM() {
 
   function showHelpModal() {
     $(`<div id="help-modal" class="modal-structure">
-      <div id="help-modal-content" class="modal-content">
-        <h6>The Rules</h6>
-        <ul>
-          <li class="modal-text">Each player will alternate guessing the top 3 reponses to a question.</li>
-          <li class="modal-text">When a correct guess is made, that player's score will increase by the number of responses.</li>
-          <li class="modal-text">The round will end after all three responses have been guessed.</li>
-          <li class="modal-text">After 2 rounds you will play a FAST MONEY Round!</li>
-        </ul>
-        <button class="close-model-help" type="button">Close</button>
-      </div>
-    </div>`).insertAfter('#main-survey-guess')
+        <div class="modal-content">
+          <h6>THE RULES</h6>
+          <ul>
+            <li>Each player will alternate guessing the top 3 reponses to a question.</li>
+            <li>When a correct guess is made, that player's score will increase by the number of responses.</li>
+            <li>The round will end after all three responses have been guessed.</li>
+            <li>After 2 rounds you will play a FAST MONEY Round!</li>
+          </ul>
+          <button class="close-model-help" type="button">close</button>
+        </div>
+      </div>`).insertAfter('#main-survey-guess')
   }
 
   function showEndGameModal() {
     $(`<div id="end-modal" class="modal-structure">
-      <div id="end-modal-content" class="modal-content">
-        <h6>WAIT!!!</h6>
-        <ul>
-        <li class="modal-text">Are you sure you want quit??</li>
-        <li class="modal-text">Once you click the button below, you will lose all your progress</li>
-        </ul>
-        <div class="endgame-buttons">
-          <button class="end-modal">End Game!!</button>
-          <button class="return-game">Return to Game</button>
+        <div class="modal-content">
+          <h6>WAIT!!!</h6>
+          <ul>
+            <li>Are you sure you want quit??</li>
+            <li>Once you click the button below, you will lose all your progress!</li>
+          </ul>
+          <div class="endgame-buttons">
+            <button class="end-modal">end game</button>
+            <button class="return-game">return to game</button>
+          </div>
         </div>
-      </div>
-    </div>`).insertAfter('#main-survey-guess')
+      </div>`).insertAfter('#main-survey-guess')
   }
 
 const getMultipliers = (p1, p2) => {
