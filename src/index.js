@@ -10,9 +10,6 @@ import './images/feud_splash_bkgd.png';
 import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
 import './images/feud_icon.png'
-
-import data from './data.js';
-
 import Game from './Game.js';
 import domUpdates from './domUpdates';
 
@@ -20,6 +17,7 @@ import domUpdates from './domUpdates';
 let game, timer, timeLeft, timerId;
 
 $(document).ready(() => {
+  let $guessInput = $('#guess-input');
   $('#start-game, #submit-guess').prop('disabled', true);
   $('#game-page, #player2-carrot, #start-modal').hide();
   // include all elements that should be hidded on page load, then we can show as/when needed
@@ -59,6 +57,7 @@ $('#guess-input').keyup(() => {
 // we can tab to buttons to submit on enter, but still need to be able to submit on enter from input field
 
 $('#submit-guess').on('keypress click', (e) => {
+  // all we need is to add an event listener to the input and make sure enter is hit, we may neee to put the below into a handler if (e.keycode === 13) {functions}
   e.preventDefault();
   if (e.which === 13 || e.type === 'click') {
     if (game.roundCounter <= 2) {
