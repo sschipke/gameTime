@@ -1,9 +1,7 @@
 import $ from 'jquery';
 
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/feud_title.png';
 import './images/feud_subtitle.png';
 import './images/feud_splash_bkgd.png';
@@ -16,13 +14,11 @@ import data from './data.js';
 import Game from './Game.js';
 import domUpdates from './domUpdates';
 
-
 let game, timer, timeLeft, timerId;
 
 $(document).ready(() => {
   $('#start-game, #submit-guess').prop('disabled', true);
-  $('#game-page, #player2-carrot, #start-modal').hide();
-  // include all elements that should be hidded on page load, then we can show as/when needed
+  $('#game-page, #player2-carrot').hide();
 
 $('.name-inputs').keyup(() => {
   if ($('#player1-input').val() !== '' && $('#player2-input').val() !== '') {
@@ -50,13 +46,14 @@ const startGame = (surveys, answers, p1, p2) => {
   game.startRound();
 };
 
+$('.help').click(showHelpModal);
+$('.endgame').click(showEndGameModal)
+
 $('#guess-input').keyup(() => {
   if ($('#guess-input').val() !== '') {
       $('#submit-guess').prop('disabled', false);
     }
 })
-
-// we can tab to buttons to submit on enter, but still need to be able to submit on enter from input field
 
 $('#submit-guess').on('keypress click', (e) => {
   e.preventDefault();
@@ -75,9 +72,6 @@ $('#submit-guess').on('keypress click', (e) => {
   }
 })
 
-$('.help').click(showHelpModal);
-$('.endgame').click(showEndGameModal)
-
 $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-round')) {
     $('#answer1').text('1');
@@ -92,19 +86,16 @@ $('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-start')) {
     $('#start-modal').remove();
   }
-  if(e.target.classList.contains('close-model-help')) {
-    $('#help-modal').remove();
-  }
   if(e.target.classList.contains('return-game')) {
     $('#end-modal').remove();
+  }
+  if(e.target.classList.contains('close-model-help')) {
+    $('#help-modal').remove();
   }
   if(e.target.classList.contains('new-game')) {
     $('#winner-modal').remove();
     window.location.reload();
   }
-});
-
-$('#game-page').click((e) => {
   if(e.target.classList.contains('close-modal-fast-money')) {
     $('#answer1').text('1');
     $('#answer2').text('2');
@@ -117,14 +108,11 @@ $('#game-page').click((e) => {
     $('#fastmoney-modal').remove();
     startTimer();
   }
-  // if(e.target.classList.contains('close-modal-start')) {
-  //   $('#start-modal').remove();
-  // }
-  if (e.target.classList.contains('end-modal')) {
-    window.location.reload();
-  }
   if(e.target.classList.contains('close-modal-fast-money2')) {
     startFastMoneyRound2();
+  }
+  if (e.target.classList.contains('end-modal')) {
+    window.location.reload();
   }
 });
 
