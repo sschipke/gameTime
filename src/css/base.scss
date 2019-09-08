@@ -149,11 +149,11 @@ main {
   justify-content: center;
 }
 
-.round-modal {
-  display: flex;
+.modal-structure {
   align-items: center;
-  justify-content: center;
   background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
   height: 100%;
   position: fixed;
   top: 0;
@@ -162,37 +162,20 @@ main {
 }
 
 .modal-content {
+  align-items: center;
+  background-color: white;
   background-image: url("/images/feud_modal_bkgd.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  // height: 50%;
+  padding: 30px;
   width: 50%;
 }
 
-#start-modal-content {
-  display: flex;
-  // height: 75%;
-  width: 75%;
-}
-
-#modal-round {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 40px;
-  margin: 10px;
-}
-
-.modal-content {
-  width: 80%;
-}
-
-.modal-round {
+h6 {
+  text-align: center;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -201,11 +184,34 @@ main {
   margin: 10px;
 }
 
-.modal-text {
+.modal-li {
   font-family: sans-serif;
-  font-size: 25px;
-  width: 95%;
+  font-size: 18px;
 }
+
+.modal-p {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+// #modal-round {
+//   font-family: sans-serif;
+//   font-weight: bold;
+//   font-size: 40px;
+//   margin: 10px;
+// }
+
+// .modal-content {
+//   width: 80%;
+// }
+//
+
+//
+// .modal-text {
+//   font-family: sans-serif;
+//   font-size: 25px;
+//   width: 95%;
+// }
 
 .multipliers {
   height: 25px;

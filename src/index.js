@@ -79,7 +79,7 @@ $('.help').click(showHelpModal);
 $('.endgame').click(showEndGameModal)
 
 $('#game-page').click((e) => {
-  if(e.target.classList.contains('start-round')) {
+  if(e.target.classList.contains('close-modal-round')) {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
@@ -87,10 +87,13 @@ $('#game-page').click((e) => {
     game.startRound();
     game.currentRound.turnCounter++;
     switchStartingPlayer();
-    $('.round-modal').remove();
+    $('#round-modal').remove();
   }
   if(e.target.classList.contains('close-modal-start')) {
-    $('.round-modal').remove();
+    $('#start-modal').remove();
+  }
+  if(e.target.classList.contains('close-model-help')) {
+    $('#help-modal').remove();
   }
   if(e.target.classList.contains('return-game')) {
     $('#end-modal').remove();
@@ -102,7 +105,7 @@ $('#game-page').click((e) => {
 });
 
 $('#game-page').click((e) => {
-  if(e.target.classList.contains('fast-money-start')) {
+  if(e.target.classList.contains('close-modal-fast-money')) {
     $('#answer1').text('1');
     $('#answer2').text('2');
     $('#answer3').text('3');
@@ -111,12 +114,12 @@ $('#game-page').click((e) => {
     let p2Multi = e.target.closest('#fastmoney-modal').querySelector('#p2-multiplier').value;
     getMultipliers(p1Multi, p2Multi)
     game.startRound();
-    $('.round-modal').remove();
+    $('#fastmoney-modal').remove();
     startTimer();
   }
-  if(e.target.classList.contains('close-modal-start')) {
-    $('.round-modal').remove();
-  }
+  // if(e.target.classList.contains('close-modal-start')) {
+  //   $('#start-modal').remove();
+  // }
   if (e.target.classList.contains('end-modal')) {
     window.location.reload();
   }
@@ -126,7 +129,7 @@ $('#game-page').click((e) => {
 });
 
 function startFastMoneyRound2() {
-  $('#fastmoney-modal').remove();
+  $('#fastmoney-modal2').remove();
   switchStartingPlayer();
   $('#player1-carrot').toggle();
   $('#player2-carrot').toggle();
@@ -177,40 +180,34 @@ function countDOM() {
 }
 
   function showHelpModal() {
-    $(`<div id="help-modal" class="round-modal">
-  <div id="help-modal-content" class="modal-content">
-  <ul>
-  <li class="modal-text">Each player will alternate guessing the top 3 reponses to a question.</li>
-
-  <li class="modal-text">When a correct guess is made, that player's score will increase by the number of responses.</li>
-
-  <li class="modal-text">The round will end after all three responses have been guessed.</li>
-
-  <li class="modal-text">After 2 rounds you will play a FAST MONEY Round!</li>
-  </ul>
-
-  </p><button class="close-modal-start" type="button">Close</button>
-
-  </div>
-  </div>`).insertAfter('#main-survey-guess')
+    $(`<div id="help-modal" class="modal-structure">
+      <div id="help-modal-content" class="modal-content">
+        <h6>The Rules</h6>
+        <ul>
+          <li class="modal-text">Each player will alternate guessing the top 3 reponses to a question.</li>
+          <li class="modal-text">When a correct guess is made, that player's score will increase by the number of responses.</li>
+          <li class="modal-text">The round will end after all three responses have been guessed.</li>
+          <li class="modal-text">After 2 rounds you will play a FAST MONEY Round!</li>
+        </ul>
+        <button class="close-model-help" type="button">Close</button>
+      </div>
+    </div>`).insertAfter('#main-survey-guess')
   }
 
   function showEndGameModal() {
-    $(`<div id="end-modal" class="round-modal">
-  <div id="end-modal-content" class="modal-content">
-    <h2 class="end-warning">WAIT!!!</h2>
-  <ul>
-
-  <li class="modal-text">Are you sure you want quit??</li>
-
-  <li class="modal-text">Once you click the button below, you will lose all your progress</li>
-
-  </ul>
-    <div class="endgame-buttons">
-      <button class="end-modal">End Game!!</button> <button class="return-game"> Return to Game </button>
-    </div>
-  </div>
-  </div>`).insertAfter('#main-survey-guess')
+    $(`<div id="end-modal" class="modal-structure">
+      <div id="end-modal-content" class="modal-content">
+        <h6>WAIT!!!</h6>
+        <ul>
+        <li class="modal-text">Are you sure you want quit??</li>
+        <li class="modal-text">Once you click the button below, you will lose all your progress</li>
+        </ul>
+        <div class="endgame-buttons">
+          <button class="end-modal">End Game!!</button>
+          <button class="return-game">Return to Game</button>
+        </div>
+      </div>
+    </div>`).insertAfter('#main-survey-guess')
   }
 
 const getMultipliers = (p1, p2) => {
