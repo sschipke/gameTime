@@ -104,7 +104,6 @@ displayFastMoneyModal2(round) {
 },
 
 displayWinnerModal(winner, loser) {
-
   $(`<div id="winner-modal" class="modal-content round-modal">
    <h6>Game Over!</h6>
    <h6>${winner.name} is the winner!!!</h6>
@@ -120,5 +119,22 @@ changeTimerColor() {
   $('#timer').css('background-color', 'pink');
 },
 
+correctGuessIndicator() {
+  $('#guess-input').css('border', '3px solid #2A9C2D')
+  // let audio = new Audio('../src/sound/incorrect.mp3');
+  // audio.play();
+  setTimeout(() => {
+    $('#guess-input').css('border', '1px solid lightgrey')
+  }, 1000)
+},
+
+incorrectGuessIndicator() {
+  $('#guess-input').css('border', '3px solid #F05355')
+  // let audio = new Audio('../src/sound/incorrect.mp3');
+  // audio.play();
+  setTimeout(() => {
+    $('#guess-input').css('border', '1px solid lightgrey')
+  }, 1000)
+}
 
 };
