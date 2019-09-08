@@ -20,6 +20,14 @@ describe('Game', () => {
     expect(Game).to.be.a('function');
   });
 
+  it('should have an array of surveys', () => {
+    expect(game.surveys.length).to.equal(15);
+  });
+
+  it('should have an array of answers, 3 for each survey', () => {
+    expect(game.answers.length).to.equal(45);
+  });
+
   it('should be able to add 2 players', () => {
     game.addPlayers('Quinne', 'Scott');
     expect(game.players[1].name).to.equal('Scott');

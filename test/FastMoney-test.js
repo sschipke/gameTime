@@ -36,10 +36,17 @@ describe('Fast Money', () => {
     expect(FastMoney).to.be.a('function');
   });
 
-  it('should have a survey, answers, and players', () => {
+  it('should have a survey', () => {
     expect(fastMoney.survey.id).equal(1);
+  });
+
+  it('should have the survey\'s answers', () => {
     expect(fastMoney.answers[2].answer).to.equal('Donuts');
+  });
+
+  it('should have 2 players', () => {
     expect(fastMoney.players[0].multiplier).to.equal(2);
+    expect(fastMoney.players[1].name).to.equal('Joe');
   });
 
   it('should be able to log player guesses', () => {

@@ -32,12 +32,25 @@ describe('Round', () => {
     expect(Round).to.be.a('function')
   });
 
-  it('should have a survey, answers, players, roundCounter, turnCounter, correctGuesses', () => {
+  it('should have a survey', () => {
     expect(round.survey.question).to.equal('Why Might A Family Move Into A Bigger House?');
+  });
+
+  it('should have the survey\'s answers', () => {
     expect(round.answers.length).to.equal(3);
+  });
+
+  it('should have 2 players', () => {
+    expect(round.players[0].name).to.equal('Quinne');
     expect(round.players[1].name).to.equal('Scott');
+  });
+
+  it('should have a roundCounter and turnCounter', () => {
     expect(round.roundCounter).to.equal(1);
     expect(round.turnCounter).to.equal(1);
+  });
+
+  it('should have an array for correct guesses', () => {
     expect(round.correctGuesses).to.eql([]);
   });
 
