@@ -80,6 +80,10 @@ button {
   }
 }
 
+#black-button {
+  background-color: black;
+}
+
 // game page
 #game-page {
   display: flex;
@@ -144,7 +148,7 @@ section {
 }
 
 .survey-score {
-  background-color: #F05355;
+  background-color: $backgroundColor;
   width: 20%;
 }
 
@@ -178,10 +182,20 @@ main {
   justify-content: center;
   padding: 30px;
   width: 50%;
+  .survey-num {
+    background-color: #F05355;
+  } 
+  .survey-score {
+    background-color: black;
+  }
+}
+
+#point {
+  margin: auto 10px;
 }
 
 #fastmoney-modal-content {
-  width: 75%;
+  width: 55%;
 }
 
 h6 {
@@ -301,7 +315,7 @@ h4 {
 footer {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 footer p {
@@ -323,14 +337,16 @@ footer p {
 }
 
 #multipliers {
+  align-items: center;
   display: flex;
   font-family: Arial;
   position: relative;
 }
 
 select {
-  background-color: white;
+  background-color: $click-color;
   border: none;
+  color: white;
   font-size: 18px;
   height: 25px;
   margin: 10px;
