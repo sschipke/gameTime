@@ -2,8 +2,8 @@ import Round from './Round.js';
 import domUpdates from './domUpdates.js';
 
 class FastMoney extends Round {
-  constructor(survey, answers, players) {
-    super(survey, answers, players);
+  constructor(survey, answers, players, turnCounter) {
+    super(survey, answers, players, turnCounter);
   }
 
   logGuesses(guess) {
@@ -31,18 +31,14 @@ class FastMoney extends Round {
   }
 
   findWinner() {
-    return this.players.sort((a, b) => b.score - a.score)[0];
-  }
-
-  findLoser() {
-    return this.players.sort((a, b) => b.score - a.score)[1];
+    return this.players.sort((a, b) => b.score - a.score);
   }
 
   endGame() {
     this.checkGuesses();
     this.getFinalScores();
-    let winner = this.findWinner();
-    let loser = this.findLoser();
+    let winner = this.findWinner()[0];
+    let loser = this.findWinner()[1];
     domUpdates.displayWinnerModal(winner, loser);
   }
 }
