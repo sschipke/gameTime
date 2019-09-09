@@ -75,7 +75,7 @@ $(document).ready(() => {
         $('#guess-input').val('')
         $('#submit-guess').prop('disabled', true)
         $('#aside-player2, #aside-player1').toggleClass('innactive')
-        $('#player2-carrot, #player1-carrot').toggle(); 
+        $('#player2-carrot, #player1-carrot').toggle();
         setInputText();
       } else {
         let guess = $('#guess-input').val();
@@ -161,7 +161,7 @@ $(document).ready(() => {
       clearTimeout(timerId);
       countDOM()
       game.currentRound.turnCounter++
-    } else if (timeLeft <= 5) {
+    } else if (timeLeft <= 10) {
       timer.style.color = '#F05355';
       timer.innerHTML = `TIME: ${timeLeft} SEC`;
       timeLeft--;
