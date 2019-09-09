@@ -1,4 +1,6 @@
 @import 'variables';
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap);
 
 //splash page
 body {
@@ -38,6 +40,7 @@ img {
   margin: 20px;
 }
 
+// all pages
 input {
   color: #000000;
   background-color: white;
@@ -52,18 +55,14 @@ input::placeholder {
   color: gray;
 }
 
-a {
-  color: #59D2ED;
-  font-size: 16px;
-  text-decoration: none;
-}
-
 button {
   background-color: $click-color;
   border: none;
   color: white;
   cursor: pointer;
   font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
   margin: 20px;
   padding: 20px;
   width: 200px;
@@ -149,11 +148,11 @@ main {
   justify-content: center;
 }
 
-.round-modal {
-  display: flex;
+.modal-structure {
   align-items: center;
-  justify-content: center;
   background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
   height: 100%;
   position: fixed;
   top: 0;
@@ -162,37 +161,24 @@ main {
 }
 
 .modal-content {
+  align-items: center;
+  background-color: white;
   background-image: url("/images/feud_modal_bkgd.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  // height: 50%;
+  padding: 30px;
   width: 50%;
 }
 
-#start-modal-content {
-  display: flex;
-  // height: 75%;
+#fastmoney-modal-content {
   width: 75%;
 }
 
-#modal-round {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 40px;
-  margin: 10px;
-}
-
-.modal-content {
-  width: 80%;
-}
-
-.modal-round {
+h6 {
+  text-align: center;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -201,24 +187,15 @@ main {
   margin: 10px;
 }
 
-.modal-text {
+p {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.winner-p {
   font-family: sans-serif;
   font-size: 25px;
-  width: 95%;
-}
-
-.multipliers {
-  height: 25px;
-  width: 100px;
-}
-
-#multi-inputs {
-  display: flex;
-}
-
-p {
-  font-size: 30px;
-  font-weight: 700;
+  margin: 15px;
 }
 
 ul {
@@ -226,6 +203,8 @@ ul {
 }
 
 li {
+  font-family: sans-serif;
+  font-size: 18px;
   list-style: none;
   margin: 0 0 20px 0;
 }
@@ -234,6 +213,10 @@ li:before {
   content: '>';
   margin-left: -20px;
   margin-right: 10px;
+}
+
+#multi-inputs {
+  display: flex;
 }
 
 h2 {
@@ -307,7 +290,8 @@ footer {
 
 footer p {
   color: $click-color;
-  font-size: 1em;
+  font-weight: bold;
+  font-size: 18px;
     &:hover {
       cursor: pointer;
     }
@@ -315,4 +299,31 @@ footer p {
 
 .help:hover {
   cursor: help;
+}
+
+.multipliers {
+  height: 25px;
+  width: 100px;
+}
+
+#multipliers {
+  position: relative;
+  font-family: Arial;
+}
+
+select {
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  height: 50px;
+  margin: 10px;
+  outline: 1px solid white;
+  outline-offset: -1px;
+  width: 50px;
+}
+
+label {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 25px;
 }

@@ -1,38 +1,92 @@
 import chai from 'chai';
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 
 import FastMoney from '../src/FastMoney.js';
+import Player from '../src/Player.js';
+import domUpdates from '../src/domUpdates.js';
+  
+chai.spy.on(domUpdates, 'displayWinnerModal', () =>{});
 
 describe('Fast Money', () => {
 
-  let fastMoney, surveys, answers, players;
+  let fastMoney, survey, answers, player1, player2, players;
 
   beforeEach(() => {
-    surveys = [{ id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' }];
-
-    answers = [{ answer: 'Beer', respondents: 67, surveyId: 1 }, { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }, { answer: 'Donuts', respondents: 24, surveyId: 1 }];
-
-    players = [{ id : 1, name: 'Bob', score: 0, multiplier: 2, fmGuesses: [], fmScore: 0 }, { id : 2, name: 'Joe', score: 0, multiplier: 3, fmGuesses: [], fmScore: 0 }];
-
-    fastMoney = new FastMoney(surveys, answers, players, 1);
+    player1 = new Player(1, 'Bob');
+    player2 = new Player(2, 'Joe');
+    player1.multiplier = 2;
+    player2.multiplier = 3;
+    player1.score = 10;
+    player2.score = 20;
+    players = [player1, player2]
+    survey = { 
+      id: 1, 
+      question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?'
+    };
+    answers = [
+      { answer: 'Beer', respondents: 67, surveyId: 1 }, 
+      { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }, 
+      { answer: 'Donuts', respondents: 24, surveyId: 1 }];
+    fastMoney = new FastMoney(survey, answers, players);
   });
 
-  it('should be an instance of Fast Money', () => {
-    expect(fastMoney).to.be.an.instanceOf(FastMoney);
+  it('should be a function', () => {
+    expect(FastMoney).to.be.a('function');
   });
 
-  it('should have access to Round\'s properties', () => {
-    expect(fastMoney.correctGuesses).to.deep.equal([]);
+  it('should have a survey', () => {
+    expect(fastMoney.survey.id).equal(1);
   });
 
-  it('should be able to log user guesses', () => {
-    fastMoney.logGuesses(1, 'Beer');
-    fastMoney.logGuesses(1, 'Donuts');
-    fastMoney.logGuesses(2, 'Bowling Ball');
-    let here = fastMoney.checkGuesses();
-    // console.log(here)
+  it('should have the survey\'s answers', () => {
+    expect(fastMoney.answers[2].answer).to.equal('Donuts');
+  });
+
+  it('should have 2 players', () => {
+    expect(fastMoney.players[0].multiplier).to.equal(2);
+    expect(fastMoney.players[1].name).to.equal('Joe');
+  });
+
+  it('should be able to log player guesses', () => {
+    fastMoney.logGuesses('Beer');
+    fastMoney.logGuesses('Donuts');
+    fastMoney.turnCounter = 2;
+    fastMoney.logGuesses('bowling ball');
+    fastMoney.checkGuesses();
     expect(fastMoney.players[0].fmScore).to.equal(182);
+    expect(fastMoney.players[1].fmScore).to.equal(15);
   });
 
-  // need to add more tests and chai spies
+  it('should be able to get final scores', () => {
+    fastMoney.logGuesses('Beer');
+    fastMoney.logGuesses('Donuts');
+    fastMoney.turnCounter = 2;
+    fastMoney.logGuesses('bowling ball');
+    fastMoney.checkGuesses();
+    fastMoney.getFinalScores();
+    expect(fastMoney.players[0].score).to.equal(192);
+    expect(fastMoney.players[1].score).to.equal(35);   
+  });
+
+  it('should be able to find the winner', () => {
+    fastMoney.logGuesses('Beer');
+    fastMoney.logGuesses('Donuts');
+    fastMoney.turnCounter = 2;
+    fastMoney.logGuesses('bowling ball');
+    fastMoney.checkGuesses();
+    fastMoney.getFinalScores();
+    expect(fastMoney.findWinner()[0].name).to.equal('Bob');
+  });
+
+  it('should be able to end the game', () => {
+    fastMoney.logGuesses('Beer');
+    fastMoney.logGuesses('Donuts');
+    fastMoney.turnCounter = 2;
+    fastMoney.logGuesses('bowling ball');
+    fastMoney.endGame();
+    expect(domUpdates.displayWinnerModal).to.have.been.called(1);
+  });
+
 });

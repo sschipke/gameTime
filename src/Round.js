@@ -1,17 +1,14 @@
-import data from './data.js';
-import Game from './Game.js'
-import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 
 class Round {
   constructor(survey, answers, players, round) {
     this.survey = survey;
     this.answers = answers;
-    this.correctGuesses = [];
     this.players = players;
-    this.currentPlayer;
     this.turnCounter = 1;
+    this.currentPlayer;
     this.roundCounter = round;
+    this.correctGuesses = [];
   }
 
   determineCurrentPlayer() {
@@ -34,12 +31,12 @@ class Round {
       domUpdates.appendCorrectGuess(player.id, index, this.answers[index], player.score);
       let answer = this.answers.slice(index)[0];
       this.correctGuesses.push(answer.answer.toUpperCase());
+      domUpdates.correctGuessIndicator();
       this.turnCounter++;
       this.endRound();
-      //update DOM RIGHT!
     } else {
+      domUpdates.incorrectGuessIndicator();
       this.turnCounter++;
-      //update DOM WRONG!
     }
   }
 
