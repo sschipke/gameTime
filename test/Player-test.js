@@ -3,7 +3,6 @@ import chai from 'chai';
 
 import Player from '../src/Player.js';
 
-
 describe('Player', () => {
 
   let player;
@@ -16,10 +15,6 @@ describe('Player', () => {
     expect(Player).to.be.a('function');
   });
 
-  it('should be an instance of Player', () => {
-    expect(player).to.be.an.instanceof(Player);
-  });
-
   it('should have an id', () => {
     expect(player.id).to.equal(1);
   });
@@ -28,8 +23,20 @@ describe('Player', () => {
     expect(player.name).to.equal('Quinne');
   });
 
-  it('should have a score', () => {
+  it('should have a score of 0 by default', () => {
     expect(player.score).to.equal(0);
+  });
+
+  it('should have a multiplier of 1 by default', () => {
+    expect(player.multiplier).to.equal(1);
+  });
+
+  it('should have an empty array for fmGuesses by default', () => {
+    expect(player.fmGuesses).to.eql([]);
+  });
+
+  it('should have a fmScore of 0 by default', () => {
+    expect(player.fmScore).to.equal(0);
   });
 
 });

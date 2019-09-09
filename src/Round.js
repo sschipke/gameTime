@@ -1,17 +1,14 @@
-import data from './data.js';
-import Game from './Game.js'
-import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 
 class Round {
   constructor(survey, answers, players, round) {
     this.survey = survey;
     this.answers = answers;
-    this.correctGuesses = [];
     this.players = players;
-    this.currentPlayer;
     this.turnCounter = 1;
+    this.currentPlayer;
     this.roundCounter = round;
+    this.correctGuesses = [];
   }
 
   determineCurrentPlayer() {
