@@ -1,6 +1,11 @@
 # Abstract
 
+Our group was tasked with recreating a unique, web version of the TV gameshow 'Family Feud'. In this project we used the following technologies:
 
+- webpack
+- SASS
+- ES6 (JavaScript)
+- HTML
 
 ## To install
 Clone down this repo 
