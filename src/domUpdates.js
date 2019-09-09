@@ -22,49 +22,45 @@ export default {
     $('#round-counter').text(roundText);
   },
 
-  displayStartModal(round, p1) {
+  displayStartModal(p1) {
     $(`<div id="start-modal" class="modal-structure">
       <div class="modal-content">
-        <h6>Ready to feud?</h6>
-        <h6>Lets start... ROUND: ${round}</h6>
+        <h6>ROUND: ONE</h6>
         <ul>
           <li>Each player will alternate guessing the top 3 reponses to a question.</li>
           <li>When a correct guess is made, that player's score will increase by the number of responses.</li>
           <li>The round will end after all three responses have been guessed.</li>
           <li>After 2 rounds you will play a FAST MONEY Round!</li>
         </ul>
-        <h6>${p1} you are up first!</h6>
-        <h6>Get ready!</h6>
+        <h6>${p1}, you are up first!</h6>
         <button class="close-modal-start" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
   },
 
-  displayRoundModal(round, p2) {
+  displayRoundModal(p2) {
     $(`<div id="round-modal" class="modal-structure">
       <div class="modal-content">
-        <h6>Nice work!</h6>
-        <h6>Up next... ROUND: ${round}</h6>
-        <h6>${p2} it is your turn to guess first!</h6>
-        <p>Click the button when you are ready.</p>
+        <h6>ROUND: TWO</h6>
+        <p class="winner-p">${p2}, it is your turn to guess first!</p>
         <button class="close-modal-round" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
   },
 
-  displayFastMoneyModal(round, p1, p2) {
+  displayFastMoneyModal(p1, p2) {
     $(`<div id="fastmoney-modal" class="modal-structure">
       <div id="fastmoney-modal-content" class="modal-content">
-        <h6>Time to think fast!</h6>
-        <h6>Lets begin... ROUND: ${round}</h6>
+        <h6>ROUND: FAST MONEY</h6>
         <ul>
           <li>Each player will have 30 seconds to guess as many responses as they can.</li>
           <li>Before starting each player will choose a multiplier between 1 and 5.</li>
-          <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
-          <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
+          <li>After each player has had a turn, their scores will be increased by their correct responses total times their chosen multiplier.</li>
+          <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses times their chosen multiplier.</li>
         </ul>
           <div id="multipliers">
-            <label for="p1-multiplier">${p1}, choose your multiplier</label>
+            <p class="winner-p">Choose your multipliers</p>
+            <label for="p1-multiplier">${p1}</label>
             <select id="p1-multiplier">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -73,7 +69,7 @@ export default {
               <option value="5">5</option>
             </select>
             </br>
-            <label for="p2-multiplier">${p2}, choose your multiplier</label>
+            <label for="p2-multiplier">${p2}</label>
             <select id="p2-multiplier">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -82,19 +78,18 @@ export default {
               <option value="5">5</option>
             </select>
           </div>
-        <h6>Be ready ${p1}! You are going first!</h6>
-        <p>Timer will start when button is clicked.</p>
+        <h6>Be ready ${p1}, You are going first!</h6>
+        <p class="winner-p">Timer will start when button is clicked.</p>
         <button class="close-modal-fast-money" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
   },
 
-  displayFastMoneyModal2(round, p2) {
+  displayFastMoneyModal2(p2) {
     $(`<div id="fastmoney-modal2" class="modal-structure">
       <div class="modal-content">
-        <h6>Great job!</h6>
-        <h6>${p2} it is your turn!</h6>
-        <p>Timer will start when button is clicked.</p>
+        <h6>${p2}, it is your turn!</h6>
+        <p class="winner-p">Timer will start when button is clicked.</p>
         <button class="close-modal-fast-money2" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
@@ -103,13 +98,8 @@ export default {
   displayWinnerModal(winner, loser) {
     $(`<div id="winner-modal" class="modal-structure">
       <div class="modal-content">
-         <h6>Game over!</h6>
          <h6>${winner.name} is the winner!!!</h6>
-         <p class="winner-p">The final score:</p>
-         <p class="winner-p">${winner.name} => ${winner.score}</p>
-         <p class="winner-p">${loser.name} => ${loser.score}</p>
-         <h6>Great job!</h6>
-         <p>Click below to play again.</p>
+         <p class="winner-p">${winner.name}: ${winner.score} <span> > </span> ${loser.name}: ${loser.score}</p>
          <button class="new-game">git reset</button>
        </div>
     </div>`).insertAfter('#main-survey-guess')

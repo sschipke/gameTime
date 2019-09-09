@@ -43,7 +43,7 @@ class Game {
     this.roundCounter++;
     if (this.roundCounter <= 1) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
-      domUpdates.displayStartModal(this.roundCounter, this.players[0].name);
+      domUpdates.displayStartModal(this.players[0].name);
     } else if (this.roundCounter <= 2) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
     } else {
