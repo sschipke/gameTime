@@ -31,12 +31,12 @@ class Round {
       domUpdates.appendCorrectGuess(player.id, index, this.answers[index], player.score);
       let answer = this.answers.slice(index)[0];
       this.correctGuesses.push(answer.answer.toUpperCase());
+      domUpdates.correctGuessIndicator();
       this.turnCounter++;
       this.endRound();
-      //update DOM RIGHT!
     } else {
+      domUpdates.incorrectGuessIndicator();
       this.turnCounter++;
-      //update DOM WRONG!
     }
   }
 
