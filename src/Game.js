@@ -33,6 +33,7 @@ class Game {
 
   getSurveyAnswers() {
     this.selectSurvey();
+    console.log(this.currentAnswers)
     this.currentAnswers = this.answers.filter(answer => answer.surveyId === this.currentSurvey.id);
     this.currentAnswers.sort((a, b) => b.respondents - a.respondents);
   }

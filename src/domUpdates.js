@@ -38,7 +38,7 @@ export default {
         <button class="close-modal-start" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
-},
+  },
 
   displayRoundModal(round, p2) {
     $(`<div id="round-modal" class="modal-structure">
@@ -120,19 +120,19 @@ export default {
   },
 
   correctGuessIndicator() {
-    $('#guess-input').css('border', '3px solid #2A9C2D')
+    $('#guess-input').css('border', '5px solid #2A9C2D')
     // audio.correctAudio();
     setTimeout(() => {
       $('#guess-input').css('border', '1px solid lightgrey')
-    }, 1000)
+    }, 2000)
   },
   
   incorrectGuessIndicator() {
-    $('#guess-input').css('border', '3px solid #F05355')
+    $('#guess-input').css('border', '5px solid #F05355')
     // audio.incorrectAudio();
     setTimeout(() => {
       $('#guess-input').css('border', '1px solid lightgrey')
-    }, 1000)
+    }, 2000)
   },
 
 
