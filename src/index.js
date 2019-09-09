@@ -157,7 +157,7 @@ $(document).ready(() => {
 
   const countdown = () => {
     timer.style.color = 'black';
-    if (timeLeft == -1) {
+    if (timeLeft === -1) {
       clearTimeout(timerId);
       countDOM()
       game.currentRound.turnCounter++
