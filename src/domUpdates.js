@@ -60,8 +60,8 @@ export default {
         <ul>
           <li>Each player will have 30 seconds to guess as many responses as they can.</li>
           <li>Before starting each player will choose a multiplier between 1 and 5.</li>
-          <li>After each player has had a turn, their scores will be increased by their correct responses total multiplied by their chosen multiplier.</li>
-          <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses multiplied by their chosen multiplier. </li>
+          <li>After each player has had a turn, their scores will be increased by their correct responses total times their chosen multiplier.</li>
+          <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses times their chosen multiplier.</li>
         </ul>
           <div id="multipliers">
             <label for="p1-multiplier">${p1}, choose your multiplier</label>
