@@ -38,7 +38,7 @@ export default {
         <button class="close-modal-start" type="button">git push</button>
       </div>
     </div>`).insertAfter('#main-survey-guess')
-},
+  },
 
   displayRoundModal(round, p2) {
     $(`<div id="round-modal" class="modal-structure">
