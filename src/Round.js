@@ -1,6 +1,3 @@
-import data from './data.js';
-import Game from './Game.js'
-import Player from './Player.js';
 import domUpdates from './domUpdates.js';
 
 class Round {

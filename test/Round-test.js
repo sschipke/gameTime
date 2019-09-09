@@ -84,7 +84,7 @@ describe('Round', () => {
     expect(round.turnCounter).to.equal(4);
     expect(round.players[1].score).to.equal(0);
     expect(round.players[0].score).to.equal(94);
-    expect(round.correctGuesses).to.eql(['WANT MORE SPACE','FAMILY HAS GROWN']);
+    expect(round.correctGuesses).to.eql(['WANT MORE SPACE', 'FAMILY HAS GROWN']);
     expect(round.correctGuesses.length).to.equal(2);
   });
 

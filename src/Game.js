@@ -1,4 +1,3 @@
-import data from './data.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import FastMoney from './FastMoney.js';
@@ -27,8 +26,8 @@ class Game {
     if (this.usedSurveys.includes(randomNum)) {
       this.selectSurvey();
     } else {
-    this.currentSurvey = this.surveys.find(survey => survey.id === randomNum);
-    this.usedSurveys.push(randomNum);
+      this.currentSurvey = this.surveys.find(survey => survey.id === randomNum);
+      this.usedSurveys.push(randomNum);
     }
   }
 
@@ -40,16 +39,17 @@ class Game {
 
   startRound() {
     this.getSurveyAnswers();
-    console.log(this.currentAnswers)
     this.roundCounter++;
-    if (this.roundCounter <= 2) {
+    if (this.roundCounter <= 1) {
+      this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
+      domUpdates.displayStartModal(this.roundCounter, this.players[0].name);
+    } else if (this.roundCounter <= 2) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
     } else {
       this.currentRound = new FastMoney(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
     }
     domUpdates.displayRound(this.roundCounter);
     domUpdates.displayQuestion(this.currentSurvey.question);
-    domUpdates.displayStartModal(this.roundCounter, this.players[0].name);
   }
 
 }
