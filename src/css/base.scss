@@ -97,7 +97,7 @@ header {
 }
 
 #header-img-feud {
-  width: 95px;
+  width: 140px;
 }
 
 #game-header {
@@ -109,7 +109,7 @@ header {
 }
 
 h1 {
-  padding: 20px 15% 20px 15%;
+  padding: 0px 15% 20px 15%;
   text-align: center;
 }
 
@@ -124,6 +124,7 @@ aside {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 200px;
 }
 
 .innactive {
@@ -210,6 +211,7 @@ p {
   font-family: sans-serif;
   font-size: 25px;
   margin: 15px;
+  text-align: center;
 }
 
 ul {
@@ -244,7 +246,7 @@ h2 {
 
 h3 {
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 40px;
   margin: 0;
   padding: 5px;
 }
