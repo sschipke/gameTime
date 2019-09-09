@@ -201,7 +201,7 @@ $(document).ready(() => {
             <li>The round will end after all three responses have been guessed.</li>
             <li>After 2 rounds you will play a FAST MONEY Round!</li>
           </ul>
-          <button class="close-model-help" type="button">close</button>
+          <button class="close-model-help" type="button">git revert</button>
         </div>
       </div>`).insertAfter('#main-survey-guess')
   }
@@ -215,7 +215,7 @@ $(document).ready(() => {
             <li>Once you click the button below, you will lose all your progress!</li>
           </ul>
           <div class="endgame-buttons">
-            <button class="end-modal">rm rf</button>
+            <button id="black-button" class="end-modal">rm -rf</button>
             <button class="return-game">git revert</button>
           </div>
         </div>

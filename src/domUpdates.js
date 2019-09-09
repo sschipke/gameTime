@@ -58,8 +58,8 @@ export default {
           <li>After each player has had a turn, their scores will be increased by their correct responses total times their chosen multiplier.</li>
           <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses times their chosen multiplier.</li>
         </ul>
-          <div id="multipliers">
             <p class="winner-p">Choose your multipliers</p>
+          <div id="multipliers">
             <label for="p1-multiplier">${p1}</label>
             <select id="p1-multiplier">
               <option value="1">1</option>
@@ -95,11 +95,23 @@ export default {
     </div>`).insertAfter('#main-survey-guess')
   },
 
-  displayWinnerModal(winner, loser) {
+  displayWinnerModal(winner, loser, answers) {
     $(`<div id="winner-modal" class="modal-structure">
       <div class="modal-content">
          <h6>${winner.name} is the winner!!!</h6>
-         <p class="winner-p">${winner.name}: ${winner.score} <span> > </span> ${loser.name}: ${loser.score}</p>
+         <p class="winner-p">${winner.name}: ${winner.score} <span id="point"> > </span> ${loser.name}: ${loser.score}</p>
+        <section id="survey1">
+          <h2 id="answer1" class="survey-num">${answers[0].answer}</h2>
+          <h2 id="score1"class="survey-score">${answers[0].respondents}</h2>
+        </section>
+        <section id="survey2">
+          <h2 id="answer2" class="survey-num">${answers[1].answer}</h2>
+          <h2 id="score2" class="survey-score">${answers[1].respondents}</h2>
+        </section>
+        <section id="survey3">
+          <h2 id="answer3" class="survey-num">${answers[2].answer}</h2>
+          <h2 id="score3" class="survey-score">${answers[2].respondents}</h2>
+        </section>
          <button class="new-game">git reset</button>
        </div>
     </div>`).insertAfter('#main-survey-guess')

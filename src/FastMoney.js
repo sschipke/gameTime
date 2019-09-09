@@ -39,7 +39,7 @@ class FastMoney extends Round {
     this.getFinalScores();
     let winner = this.findWinner()[0];
     let loser = this.findWinner()[1];
-    domUpdates.displayWinnerModal(winner, loser);
+    domUpdates.displayWinnerModal(winner, loser, this.answers);
   }
 }
 

@@ -33,13 +33,13 @@ class Game {
 
   getSurveyAnswers() {
     this.selectSurvey();
-    console.log(this.currentAnswers)
     this.currentAnswers = this.answers.filter(answer => answer.surveyId === this.currentSurvey.id);
     this.currentAnswers.sort((a, b) => b.respondents - a.respondents);
   }
 
   startRound() {
     this.getSurveyAnswers();
+    console.log(this.currentAnswers)
     this.roundCounter++;
     if (this.roundCounter <= 1) {
       this.currentRound = new Round(this.currentSurvey, this.currentAnswers, this.players, this.roundCounter);
