@@ -174,7 +174,7 @@ $(document).ready(() => {
   const countDOM = () => {
     if (game.currentRound.turnCounter === 1) {
       $('#submit-guess').prop('disabled', true);
-      domUpdates.displayFastMoneyModal2('FAST MONEY', game.players[1].name);
+      domUpdates.displayFastMoneyModal2(game.players[1].name);
       timer.innerHTML = 'TIME: 30 SEC';
     }
     if (game.currentRound.turnCounter === 2) {
@@ -215,8 +215,8 @@ $(document).ready(() => {
             <li>Once you click the button below, you will lose all your progress!</li>
           </ul>
           <div class="endgame-buttons">
-            <button class="end-modal">end game</button>
-            <button class="return-game">return to game</button>
+            <button class="end-modal">rm rf</button>
+            <button class="return-game">git revert</button>
           </div>
         </div>
       </div>`).insertAfter('#main-survey-guess')
