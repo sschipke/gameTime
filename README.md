@@ -8,7 +8,12 @@ Our group was tasked with recreating a unique, web version of the TV gameshow 'F
 - HTML
 
 ## To install
-Clone down this repo 
+Clone down this repo:
+In your terminal (in your desired directory) clone this repo using the following command:
+```bash
+git clone https://github.com/sschipke/gameTime.git
+```
+
 Then install the library dependencies. Run:
 
 ```bash
