@@ -34,11 +34,9 @@ class Round {
       domUpdates.correctGuessIndicator();
       this.turnCounter++;
       this.endRound();
-      //update DOM RIGHT!
     } else {
       domUpdates.incorrectGuessIndicator();
       this.turnCounter++;
-      //update DOM WRONG!
     }
   }
 

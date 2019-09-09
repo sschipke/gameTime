@@ -121,8 +121,7 @@ export default {
 
   correctGuessIndicator() {
     $('#guess-input').css('border', '3px solid #2A9C2D')
-    // let audio = new Audio('../src/sound/incorrect.mp3');
-    // audio.play();
+    // audio.correctAudio();
     setTimeout(() => {
       $('#guess-input').css('border', '1px solid lightgrey')
     }, 1000)
@@ -130,8 +129,7 @@ export default {
   
   incorrectGuessIndicator() {
     $('#guess-input').css('border', '3px solid #F05355')
-    // let audio = new Audio('../src/sound/incorrect.mp3');
-    // audio.play();
+    // audio.incorrectAudio();
     setTimeout(() => {
       $('#guess-input').css('border', '1px solid lightgrey')
     }, 1000)
