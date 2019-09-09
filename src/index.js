@@ -8,7 +8,6 @@ import './images/feud_splash_bkgd.png';
 import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
 import './images/feud_icon.png';
-
 import Game from './Game.js';
 import domUpdates from './domUpdates';
 
@@ -33,6 +32,7 @@ $(document).ready(() => {
         .then(response => response.json())
         .then(data =>  startGame(data.data.surveys, data.data.answers, player1, player2))
         .catch(err => console.log(err));
+      $('#guess-input').attr('placeholder', `${player1} enter a guess`)
     }
   });
 
@@ -47,9 +47,23 @@ $(document).ready(() => {
   $('.help').click(showHelpModal);
   $('.endgame').click(showEndGameModal)
 
-  $('#guess-input').keyup(() => {
+  $('#guess-input').keyup((e) => {
     if ($('#guess-input').val() !== '') {
       $('#submit-guess').prop('disabled', false);
+    }
+    if (e.keyCode === 13) {
+      if (game.roundCounter <= 2) {
+        game.currentRound.submitGuess($('#guess-input').val())
+        $('#guess-input').val('')
+        $('#submit-guess').prop('disabled', true)
+        $('#aside-player2, #aside-player1').toggleClass('innactive')
+        $('#player2-carrot, #player1-carrot').toggle(); setInputText();
+      } else {
+        let guess = $('#guess-input').val();
+        $('#guess-input').val('');
+        game.currentRound.logGuesses(guess)
+        setInputText();
+      }
     }
   });
 
@@ -61,10 +75,12 @@ $(document).ready(() => {
         $('#guess-input').val('')
         $('#submit-guess').prop('disabled', true)
         $('#aside-player2, #aside-player1').toggleClass('innactive')
-        $('#player2-carrot, #player1-carrot').toggle();
+        $('#player2-carrot, #player1-carrot').toggle(); 
+        setInputText();
       } else {
         let guess = $('#guess-input').val();
         $('#guess-input').val('');
+        setInputText();
         game.currentRound.logGuesses(guess)
       }
     }
@@ -121,6 +137,7 @@ $(document).ready(() => {
   const startFastMoneyRound2 = () => {
     $('#fastmoney-modal2').remove();
     switchStartingPlayer();
+    setInputText();
     startTimer();
   };
 
@@ -165,6 +182,14 @@ $(document).ready(() => {
       game.currentRound.endGame();
     }
   };
+
+  const setInputText = () => {
+    if (game.currentRound.determineCurrentPlayer().id === 1) {
+      $('#guess-input').attr('placeholder', `${game.players[0].name} enter your guess`)
+    } else {
+      $('#guess-input').attr('placeholder', `${game.players[1].name} enter your guess`)
+    }
+  }
 
   function showHelpModal() {
     $(`<div id="help-modal" class="modal-structure">
