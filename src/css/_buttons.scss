@@ -10,7 +10,7 @@
   &:before {
     content: '';
     position: absolute;
-    border: $color solid $outerBorderWidth;
+    border: $color solid $outer-border-width;
     top: 0;
     right: 0;
     bottom: 0;
