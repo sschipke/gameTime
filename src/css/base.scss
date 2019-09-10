@@ -59,7 +59,7 @@ input {
   width: 300px;
 
   &:focus {
-    // background-color: $background-color;
+    background-color: white;
     background: $input-focus;
     outline: none;
   }
@@ -88,6 +88,10 @@ button {
   &:disabled {
     background-color: gray;
     cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
