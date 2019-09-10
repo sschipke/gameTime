@@ -39,13 +39,13 @@ $(document).ready(() => {
   const startGame = (surveys, answers, p1, p2) => {
     game = new Game(surveys, answers, p1, p2);
     domUpdates.appendPlayerNames(p1, p2);
-    $('#splash-page').fadeOut(2000);
-    $('#game-page').fadeIn(3000);
+    $('#splash-page').slideUp(2000);
+    $('#game-page').fadeIn(1500);
     game.startRound();
   };
 
   $('.help').click(showHelpModal);
-  $('.endgame').click(showEndGameModal)
+  $('.endgame').click(showEndGameModal);
 
   $('#guess-input').keyup((e) => {
     if ($('#guess-input').val() !== '') {
@@ -95,12 +95,12 @@ $(document).ready(() => {
       game.startRound();
       game.currentRound.turnCounter++;
       switchStartingPlayer();
-      $('#round-modal').fadeOut(500, function() { 
+      $('#round-modal').fadeOut(1000, function() { 
         $(this).remove();
       });
     }
     if (e.target.classList.contains('close-modal-start')) {
-      $('#start-modal').fadeOut(500, function() { 
+      $('#start-modal').fadeOut(1000, function() { 
         $(this).remove();
       });
     }
@@ -121,9 +121,9 @@ $(document).ready(() => {
       window.location.reload();
     }
     if (e.target.classList.contains('close-modal-fast-money')) {
-      $('#answer1').text('1');
-      $('#answer2').text('2');
-      $('#answer3').text('3');
+      $('#answer1').text('Answers shown');
+      $('#answer2').text('after each');
+      $('#answer3').text('player has gone');
       $('#score1, #score2, #score3').text('#');
       let p1Multi = e.target.closest('#fastmoney-modal').querySelector('#p1-multiplier').value;
       let p2Multi = e.target.closest('#fastmoney-modal').querySelector('#p2-multiplier').value;
@@ -217,7 +217,7 @@ $(document).ready(() => {
           </ul>
           <button class="close-model-help" type="button">git revert</button>
         </div>
-      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(2000)
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1500)
   }
 
   function showEndGameModal() {
@@ -233,7 +233,7 @@ $(document).ready(() => {
             <button class="return-game">git revert</button>
           </div>
         </div>
-      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(2000)
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1500)
   }
 
   const getMultipliers = (p1, p2) => {

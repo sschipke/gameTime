@@ -8,9 +8,9 @@ export default {
   },
 
   appendCorrectGuess(id, index, answer, score) {
-    $(`#answer${index + 1}`).text(answer.answer).hide().fadeIn(1500);
-    $(`#score${index + 1}`).text(answer.respondents).hide().fadeIn(1500);
-    $(`#player${id}-score`).text(score).hide().fadeIn(1500);
+    $(`#answer${index + 1}`).text(answer.answer).hide().fadeIn(1000);
+    $(`#score${index + 1}`).text(answer.respondents).hide().fadeIn(1000);
+    $(`#player${id}-score`).text(score).hide().fadeIn(1000);
   },
 
   displayQuestion(question) {
@@ -39,50 +39,55 @@ export default {
   },
 
   displayRoundModal(p2) {
-    $(`<div id="round-modal" class="modal-structure">
-      <div class="modal-content">
+    setTimeout(() => {
+      $(`<div id="round-modal" class="modal-structure">
+        <div class="modal-content">
         <h6>ROUND: TWO</h6>
         <p class="winner-p">${p2}, it is your turn to guess first!</p>
         <button class="close-modal-round" type="button">git push</button>
-      </div>
-    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(5000)
+        </div>
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1000);
+    }, 2000)
   },
 
   displayFastMoneyModal(p1, p2) {
-    $(`<div id="fastmoney-modal" class="modal-structure">
-      <div id="fastmoney-modal-content" class="modal-content">
-        <h6>ROUND: FAST MONEY</h6>
-        <ul>
-          <li>Each player will have 30 seconds to guess as many responses as they can.</li>
-          <li>Before starting each player will choose a multiplier between 1 and 5.</li>
-          <li>After each player has had a turn, their scores will be increased by their correct responses total times their chosen multiplier.</li>
-          <li>If a player does not make any correct guesses, their score will be decreased by their number of guesses times their chosen multiplier.</li>
-        </ul>
-            <p class="winner-p">Choose your multipliers</p>
-          <div id="multipliers">
-            <label for="p1-multiplier">${p1}</label>
-            <select id="p1-multiplier">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            </br>
-            <label for="p2-multiplier">${p2}</label>
-            <select id="p2-multiplier">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        <h6>Be ready ${p1}, You are going first. ${p2}, no peeking!</h6>
-        <p class="winner-p">Timer will start when button is clicked.</p>
-        <button class="close-modal-fast-money" type="button">git push</button>
-      </div>
-    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(5000)
+    setTimeout(() => {
+      $(`<div id="fastmoney-modal" class="modal-structure">
+        <div id="fastmoney-modal-content" class="modal-content">
+          <h6>ROUND: FAST MONEY</h6>
+          <ul>
+            <li>Each player will have 30 seconds to guess as many   responses as they can.</li>
+            <li>Before starting each player will choose a multiplier  between 1 and 5.</li>
+            <li>After each player has had a turn, their scores will be  increased by their correct responses total times their   chosen multiplier.</li>
+            <li>If a player does not make any correct guesses, their  score will be decreased by their number of guesses times   their chosen multiplier.</li>
+          </ul>
+              <p class="winner-p">Choose your multipliers</p>
+            <div id="multipliers">
+              <label for="p1-multiplier">${p1}</label>
+              <select id="p1-multiplier">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              </br>
+              <label for="p2-multiplier">${p2}</label>
+              <select id="p2-multiplier">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          <h6>Be ready ${p1}, you are going first.</h6> 
+          <h6>${p2}, no peeking!</h6>
+          <p class="winner-p">Timer will start when button is clicked.</p>
+          <button class="close-modal-fast-money" type="button">git  push</button>
+        </div>
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1000)
+    }, 2000)
   },
 
   displayFastMoneyModal2(p2) {
@@ -122,20 +127,17 @@ export default {
   },
 
   correctGuessIndicator() {
-    $('#guess-input').css('border', '5px solid #2A9C2D')
-    // audio.correctAudio();
+    $('#guess-input').css('border', '5px solid #59D2ED').toggleClass('focus');
     setTimeout(() => {
-      $('#guess-input').css('border', '1px solid lightgrey')
-    }, 2000)
+      $('#guess-input').css('border', '1px solid lightgrey').toggleClass('focus');
+    }, 2000);
   },
   
   incorrectGuessIndicator() {
-    $('#guess-input').css('border', '5px solid #F05355')
-    // audio.incorrectAudio();
+    $('#guess-input').css('border', '5px solid #F05355').toggleClass('focus');
     setTimeout(() => {
-      $('#guess-input').css('border', '1px solid lightgrey')
-    }, 2000)
-  },
-
+      $('#guess-input').css('border', '1px solid lightgrey').toggleClass('focus');
+    }, 2000);
+  }
 
 };

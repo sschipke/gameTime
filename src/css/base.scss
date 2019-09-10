@@ -32,6 +32,7 @@ body {
 
 #splash-page-img-fevsbe {
   width: 450px;
+  margin: 30px auto;
 }
 
 #splash-page-img-vs {
@@ -42,6 +43,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
 }
 
 img {
@@ -52,22 +54,32 @@ img {
 input {
   color: black;
   background-color: white;
-  font-size: 18px;
+  font-size: 25px;
   margin: 20px;
   padding: 20px;
   text-align: center;
   width: 300px;
 
   &:focus {
-    background-color: white;
-    background: $input-focus;
     outline: none;
+  }
+
+  &::placeholder {
+  color: gray;
+  font-size: 20px;
   }
 }
 
-input::placeholder {
-  color: gray;
+
+#guess-input {
+  width: 400px;
 }
+
+
+.focus:focus {
+  outline: 3px solid black;
+}  
+
 
 button {
   background-color: $click-color;
@@ -107,7 +119,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px;
+  padding: 25px 50px;
 }
 
 header {
@@ -131,7 +143,7 @@ header {
 }
 
 h1 {
-  padding: 0px 15% 20px 15%;
+  padding: 0px 20% 20px 20%;
   text-align: center;
 }
 
@@ -223,7 +235,8 @@ h6 {
   flex-direction: column;
   font-family: $simple-font;
   font-weight: bold;
-  font-size: 35px;
+  // font-size: 35px;
+  font-size: 30px;
   margin: 10px;
 }
 
@@ -336,16 +349,16 @@ footer {
   align-items: center;
   display: flex;
   justify-content: space-around;
-}
-
-footer p {
-  color: $click-color;
-  font-weight: bold;
-  font-size: 18px;
+  margin-right: 20px;
+  p {
+    color: $click-color;
+    font-weight: bold;
+    font-size: 18px;
 
     &:hover {
       cursor: pointer;
     }
+  }
 }
 
 .help:hover {
