@@ -7,7 +7,7 @@ import Round from '../src/Round.js';
 import Player from '../src/Player.js';
 import domUpdates from '../src/domUpdates.js';
 
-chai.spy.on(domUpdates, ['appendCorrectGuess', 'displayRoundModal', 'displayFastMoneyModal'], () =>{});
+chai.spy.on(domUpdates, ['appendCorrectGuess', 'displayRoundModal', 'displayFastMoneyModal', 'correctGuessIndicator', 'incorrectGuessIndicator'], () =>{});
 
 describe('Round', () => {
   let player1, player2, players, survey, answers, round;
@@ -68,13 +68,15 @@ describe('Round', () => {
     expect(domUpdates.appendCorrectGuess).to.have.been.called(1);
     expect(round.players[0].score).to.equal(33);
     expect(round.turnCounter).to.equal(2);
+    expect(domUpdates.correctGuessIndicator).to.have.been.called(1);
   });
 
   it('should accurately evaluate an incorrect guess', () => {
     round.submitGuess('wrong')
     expect(round.correctGuesses.length).to.equal(0);
     expect(round.players[0].score).to.equal(0);
-    expect(round.turnCounter).to.equal(2)
+    expect(round.turnCounter).to.equal(2);
+    expect(domUpdates.incorrectGuessIndicator).to.have.been.called(1);
   });
 
   it('should should accurately evaluate multiple guesses', () => {
