@@ -39,8 +39,8 @@ $(document).ready(() => {
   const startGame = (surveys, answers, p1, p2) => {
     game = new Game(surveys, answers, p1, p2);
     domUpdates.appendPlayerNames(p1, p2);
-    $('#splash-page').hide();
-    $('#game-page').show();
+    $('#splash-page').fadeOut(2000);
+    $('#game-page').fadeIn(3000);
     game.startRound();
   };
 
@@ -95,19 +95,29 @@ $(document).ready(() => {
       game.startRound();
       game.currentRound.turnCounter++;
       switchStartingPlayer();
-      $('#round-modal').remove();
+      $('#round-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
     }
     if (e.target.classList.contains('close-modal-start')) {
-      $('#start-modal').remove();
+      $('#start-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
     }
     if (e.target.classList.contains('return-game')) {
-      $('#end-modal').remove();
+      $('#end-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
     }
     if (e.target.classList.contains('close-model-help')) {
-      $('#help-modal').remove();
+      $('#help-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
     }
     if (e.target.classList.contains('new-game')) {
-      $('#winner-modal').remove();
+      $('#winner-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
       window.location.reload();
     }
     if (e.target.classList.contains('close-modal-fast-money')) {
@@ -119,7 +129,9 @@ $(document).ready(() => {
       let p2Multi = e.target.closest('#fastmoney-modal').querySelector('#p2-multiplier').value;
       getMultipliers(p1Multi, p2Multi)
       game.startRound();
-      $('#fastmoney-modal').remove();
+      $('#fastmoney-modal').fadeOut(500, function() { 
+        $(this).remove();
+      });
       $('#aside-player1').removeClass('innactive');
       $('#aside-player2').addClass('innactive');
       $('#player1-carrot').show();
@@ -135,7 +147,9 @@ $(document).ready(() => {
   });
 
   const startFastMoneyRound2 = () => {
-    $('#fastmoney-modal2').remove();
+    $('#fastmoney-modal2').fadeOut(500, function() { 
+      $(this).remove();
+    });
     switchStartingPlayer();
     setInputText();
     startTimer();
@@ -203,7 +217,7 @@ $(document).ready(() => {
           </ul>
           <button class="close-model-help" type="button">git revert</button>
         </div>
-      </div>`).insertAfter('#main-survey-guess')
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(2000)
   }
 
   function showEndGameModal() {
@@ -219,7 +233,7 @@ $(document).ready(() => {
             <button class="return-game">git revert</button>
           </div>
         </div>
-      </div>`).insertAfter('#main-survey-guess')
+      </div>`).insertAfter('#main-survey-guess').hide().fadeIn(2000)
   }
 
   const getMultipliers = (p1, p2) => {

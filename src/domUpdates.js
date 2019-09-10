@@ -8,9 +8,9 @@ export default {
   },
 
   appendCorrectGuess(id, index, answer, score) {
-    $(`#answer${index + 1}`).text(answer.answer);
-    $(`#score${index + 1}`).text(answer.respondents);
-    $(`#player${id}-score`).text(score);
+    $(`#answer${index + 1}`).text(answer.answer).hide().fadeIn(1500);
+    $(`#score${index + 1}`).text(answer.respondents).hide().fadeIn(1500);
+    $(`#player${id}-score`).text(score).hide().fadeIn(1500);
   },
 
   displayQuestion(question) {
@@ -35,7 +35,7 @@ export default {
         <h6>${p1}, you are up first!</h6>
         <button class="close-modal-start" type="button">git push</button>
       </div>
-    </div>`).insertAfter('#main-survey-guess')
+    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1000)
   },
 
   displayRoundModal(p2) {
@@ -45,7 +45,7 @@ export default {
         <p class="winner-p">${p2}, it is your turn to guess first!</p>
         <button class="close-modal-round" type="button">git push</button>
       </div>
-    </div>`).insertAfter('#main-survey-guess')
+    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(5000)
   },
 
   displayFastMoneyModal(p1, p2) {
@@ -78,11 +78,11 @@ export default {
               <option value="5">5</option>
             </select>
           </div>
-        <h6>Be ready ${p1}, You are going first!</h6>
+        <h6>Be ready ${p1}, You are going first. ${p2}, no peeking!</h6>
         <p class="winner-p">Timer will start when button is clicked.</p>
         <button class="close-modal-fast-money" type="button">git push</button>
       </div>
-    </div>`).insertAfter('#main-survey-guess')
+    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(5000)
   },
 
   displayFastMoneyModal2(p2) {
@@ -92,7 +92,7 @@ export default {
         <p class="winner-p">Timer will start when button is clicked.</p>
         <button class="close-modal-fast-money2" type="button">git push</button>
       </div>
-    </div>`).insertAfter('#main-survey-guess')
+    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1000)
   },
 
   displayWinnerModal(winner, loser, answers) {
@@ -114,7 +114,7 @@ export default {
         </section>
          <button class="new-game">git reset</button>
        </div>
-    </div>`).insertAfter('#main-survey-guess')
+    </div>`).insertAfter('#main-survey-guess').hide().fadeIn(1000)
   },
 
   changeTimerColor() {

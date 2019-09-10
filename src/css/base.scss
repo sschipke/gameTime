@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'buttons';
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap);
 
@@ -10,7 +11,7 @@
 
 //splash page
 body {
-  font-family: sans-serif;
+  font-family: $simple-font;
   background-image: url("/images/feud_splash_bkgd.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -49,13 +50,19 @@ img {
 
 // all pages
 input {
-  color: #000000;
+  color: black;
   background-color: white;
   font-size: 18px;
   margin: 20px;
   padding: 20px;
   text-align: center;
   width: 300px;
+
+  &:focus {
+    // background-color: $background-color;
+    background: $input-focus;
+    outline: none;
+  }
 }
 
 input::placeholder {
@@ -74,6 +81,10 @@ button {
   padding: 20px;
   width: 200px;
 
+  &:enabled {
+     @include outline-out($click-color); 
+  }
+
   &:disabled {
     background-color: gray;
     cursor: not-allowed;
@@ -82,6 +93,9 @@ button {
 
 #black-button {
   background-color: black;
+    &:enabled {
+     @include outline-out(black); 
+  }
 }
 
 // game page
@@ -149,7 +163,7 @@ section {
 }
 
 .survey-score {
-  background-color: $backgroundColor;
+  background-color: $background-color;
   width: 20%;
 }
 
@@ -184,7 +198,7 @@ main {
   padding: 30px;
   width: 50%;
   .survey-num {
-    background-color: #F05355;
+    background-color: $background-color;
   } 
   .survey-score {
     background-color: black;
@@ -203,14 +217,14 @@ h6 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-weight: bold;
   font-size: 35px;
   margin: 10px;
 }
 
 p {
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-size: 20px;
   font-weight: bold;
 }
@@ -222,7 +236,7 @@ p {
 }
 
 .winner-p {
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-size: 25px;
   margin: 15px;
   text-align: center;
@@ -233,17 +247,17 @@ ul {
 }
 
 li {
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-size: 20px;
   font-weight: bold;
   list-style: none;
   margin: 0 0 20px 0;
-}
 
-li:before {
-  content: '>';
-  margin-left: -20px;
-  margin-right: 10px;
+  &:before {
+    content: '>';
+    margin-left: -20px;
+    margin-right: 10px;
+  }
 }
 
 #multi-inputs {
@@ -253,13 +267,13 @@ li:before {
 h2 {
   background-color: black;
   color: white;
-  font-family: sans-serif;
+  font-family: $simple-font;
   text-align: center;
   padding: 10px;
 }
 
 h3 {
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-size: 40px;
   margin: 0;
   padding: 5px;
@@ -324,6 +338,7 @@ footer p {
   color: $click-color;
   font-weight: bold;
   font-size: 18px;
+
     &:hover {
       cursor: pointer;
     }
@@ -341,7 +356,7 @@ footer p {
 #multipliers {
   align-items: center;
   display: flex;
-  font-family: Arial;
+  font-family: $simple-font;
   position: relative;
 }
 
@@ -358,7 +373,7 @@ select {
 }
 
 label {
-  font-family: sans-serif;
+  font-family: $simple-font;
   font-weight: bold;
   font-size: 25px;
 }
