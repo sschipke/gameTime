@@ -8,9 +8,9 @@ export default {
   },
 
   appendCorrectGuess(id, index, answer, score) {
-    $(`#answer${index + 1}`).text(answer.answer).hide().fadeIn(2000);
-    $(`#score${index + 1}`).text(answer.respondents).hide().fadeIn(2000);
-    $(`#player${id}-score`).text(score).hide().fadeIn(2000);
+    $(`#answer${index + 1}`).text(answer.answer).hide().fadeIn(1500);
+    $(`#score${index + 1}`).text(answer.respondents).hide().fadeIn(1500);
+    $(`#player${id}-score`).text(score).hide().fadeIn(1500);
   },
 
   displayQuestion(question) {

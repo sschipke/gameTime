@@ -95,31 +95,29 @@ $(document).ready(() => {
       game.startRound();
       game.currentRound.turnCounter++;
       switchStartingPlayer();
-      // $('#round-modal').remove();
-      $('#round-modal').fadeOut(500, function(){ 
+      $('#round-modal').fadeOut(500, function() { 
         $(this).remove();
       });
     }
     if (e.target.classList.contains('close-modal-start')) {
-      // $('#start-modal').remove();
-      $('#start-modal').fadeOut(500, function(){ 
+      $('#start-modal').fadeOut(500, function() { 
         $(this).remove();
       });
     }
     if (e.target.classList.contains('return-game')) {
-      $('#end-modal').fadeOut(500, function(){ 
+      $('#end-modal').fadeOut(500, function() { 
         $(this).remove();
       });
     }
     if (e.target.classList.contains('close-model-help')) {
-      $('#help-modal').fadeOut(500, function(){ 
+      $('#help-modal').fadeOut(500, function() { 
         $(this).remove();
       });
     }
     if (e.target.classList.contains('new-game')) {
-      $('#winner-modal').fadeOut(500, function(){ 
+      $('#winner-modal').fadeOut(500, function() { 
         $(this).remove();
-      });;
+      });
       window.location.reload();
     }
     if (e.target.classList.contains('close-modal-fast-money')) {
@@ -131,7 +129,7 @@ $(document).ready(() => {
       let p2Multi = e.target.closest('#fastmoney-modal').querySelector('#p2-multiplier').value;
       getMultipliers(p1Multi, p2Multi)
       game.startRound();
-      $('#fastmoney-modal').fadeOut(500, function(){ 
+      $('#fastmoney-modal').fadeOut(500, function() { 
         $(this).remove();
       });
       $('#aside-player1').removeClass('innactive');
@@ -149,9 +147,9 @@ $(document).ready(() => {
   });
 
   const startFastMoneyRound2 = () => {
-    $('#fastmoney-modal2').fadeOut(500, function(){ 
-        $(this).remove();
-      });
+    $('#fastmoney-modal2').fadeOut(500, function() { 
+      $(this).remove();
+    });
     switchStartingPlayer();
     setInputText();
     startTimer();
