@@ -8,6 +8,7 @@ import './images/feud_splash_bkgd.png';
 import './images/feud_modal_bkgd.png';
 import './images/feud_vs.png';
 import './images/feud_icon.png';
+
 import Game from './Game.js';
 import domUpdates from './domUpdates';
 
