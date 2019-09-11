@@ -37,3 +37,6 @@ Project is running at http://localhost:8080/
 ```
 
 Go to `http://localhost:8080/` in your browser to view your code running in the browser.
+
+![GameTime***](https://user-images.githubusercontent.com/49107377/64707435-3ad56500-d470-11e9-8461-768f349c07eb.gif)
+![GameTime*](https://user-images.githubusercontent.com/49107377/64707419-3315c080-d470-11e9-9a3a-c131d6a63930.gif)
