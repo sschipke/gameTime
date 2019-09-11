@@ -7,7 +7,11 @@ Our group was tasked with recreating a unique, web version of the TV gameshow 'F
 - ES6 (JavaScript)
 - HTML
 
+## Live site
+This game is live thanks to github pages! Just click [here](https://sschipke.github.io/gameTime/) to play.
+
 ## To install
+
 Clone down this repo:
 In your terminal (in your desired directory) clone this repo using the following command:
 ```bash
@@ -23,7 +27,6 @@ npm install
 To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
 
 ### To play the game :
-This game is live thanks to github pages! Just click [here](https://sschipke.github.io/gameTime/)
 
 In the terminal, run:
 
