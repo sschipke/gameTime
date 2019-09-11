@@ -12,7 +12,7 @@
 //splash page
 body {
   font-family: $simple-font;
-  background-image: url("/images/feud_splash_bkgd.png");
+  background-image: url("../images/feud_splash_bkgd.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 100vh;
@@ -207,7 +207,7 @@ main {
 .modal-content {
   align-items: center;
   background-color: white;
-  background-image: url("/images/feud_modal_bkgd.png");
+  background-image: url("../images/feud_modal_bkgd.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
